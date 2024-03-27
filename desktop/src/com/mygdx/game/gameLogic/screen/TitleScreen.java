@@ -24,8 +24,6 @@ import com.mygdx.game.gameEngine.screen.*;
 import com.mygdx.game.gameLogic.level.LevelManagement;
 import com.mygdx.game.gameLogic.level.LevelManager;
 import com.mygdx.game.gameLogic.level.LevelSpecifier;
-import com.mygdx.game.gameLogic.sound.SoundManagement;
-import com.mygdx.game.gameLogic.sound.SoundManager;
 
 
 
@@ -79,7 +77,6 @@ public class TitleScreen extends Screens{
 	        @Override
 	        public void clicked(InputEvent event, float x, float y) 
 	        {
-		            //getGame().setScreen(new GameScreen(getGame()));
 		            		    	    		    	    
 		    	    screenList.getScreen("INFO");
 

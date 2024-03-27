@@ -10,7 +10,7 @@ public class NonColliable extends Entity {
 	public NonColliable(String texPath, float posX, float posY, float speed) {
 		super(posX, posY, speed);
 		this.texPath = texPath;
-		// TODO Auto-generated constructor stub
+		this.isAI = false;
 	}
 
 	@Override
@@ -41,5 +41,10 @@ public class NonColliable extends Entity {
 	public String getName() {
 		return texPath;
 	}
+
+    public boolean getAI() {
+        // TODO Auto-generated method stub
+        return isAI;
+    }
 
 }

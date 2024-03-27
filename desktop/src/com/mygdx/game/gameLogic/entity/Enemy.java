@@ -39,8 +39,6 @@ public class Enemy extends Colliable {
 
     @Override
     public void update() {
-        posX += vel.x;
-        posY += vel.y;
     }
 
     @Override
@@ -54,5 +52,12 @@ public class Enemy extends Colliable {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public void setVel(Vector2 vel) {
+        this.vel = vel;
+    }
+    public Vector2 getVel() {
+        return vel;
     }
 }

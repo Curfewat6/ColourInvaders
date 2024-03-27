@@ -2,7 +2,7 @@ package com.mygdx.game.gameLogic.level;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.mygdx.game.gameEngine.entity.EntityManagement;
-import com.mygdx.game.gameLogic.entity.EntityCreation;
+
 
 public class LevelSpecifier {
 	private int levelNumber;

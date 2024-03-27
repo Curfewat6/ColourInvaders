@@ -1,11 +1,10 @@
 package com.mygdx.game.gameEngine.pcm;
 
+import com.mygdx.game.gameEngine.entity.Entity;
+
 public interface PlayerControlManagement {
 
-	void handlingPlayerInput();
-
-	void setDirection(String dir);
-	public void movePlayerBasedOnDirection();
+	boolean handlingPlayerInput(Entity a);
 
 }
 

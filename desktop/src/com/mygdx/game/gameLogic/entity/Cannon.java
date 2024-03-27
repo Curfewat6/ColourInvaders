@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.gameEngine.entity.Colliable;
+import com.mygdx.game.gameEngine.entity.EntityManagement;
+import com.mygdx.game.gameEngine.entity.EntityManager;
 import com.mygdx.game.gameEngine.entity.NonColliable;
 import com.mygdx.game.gameLogic.lifecycle.EnemyAssetsFactory;
 
@@ -17,6 +19,7 @@ public class Cannon extends NonColliable {
 
     float angle = 0;
     float rotateSpeed = 0;
+    Bullet bullet;
 
     public Cannon() {
         super("",Gdx.graphics.getWidth()/2 - 22, 5, 0);
@@ -37,7 +40,7 @@ public class Cannon extends NonColliable {
         this.rotateSpeed = rotateSpeed;
     }
 
-    public Bullet shoot(String color){
+    public Bullet shoot(String color, EntityManagement entitylist){
         if(!validColor(color)){
             return null;
         }
@@ -47,7 +50,7 @@ public class Cannon extends NonColliable {
 
         Vector2 bulletPos = new Vector2(posX + 22  - 13 + angleDir.x * 50,posY + 22 -13 + angleDir.y * 50);
 
-        Bullet bullet = new Bullet(bulletPos.x,bulletPos.y,angleDir.x,angleDir.y,color);
+        bullet = (Bullet) EntityFactory.getInstance().createEntity(EntityEnum.BULLET,bulletPos,angleDir,color);
         return bullet;
     }
 

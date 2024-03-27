@@ -18,7 +18,6 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.game.gameEngine.entity.EntityManagement;
 import com.mygdx.game.gameEngine.entity.EntityManager;
-import com.mygdx.game.gameLogic.entity.Target;
 import com.mygdx.game.gameLogic.level.LevelManagement;
 import com.mygdx.game.gameLogic.level.LevelManager;
 import com.mygdx.game.gameLogic.level.LevelSpecifier;

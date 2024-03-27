@@ -35,8 +35,6 @@ import com.mygdx.game.gameLogic.io.InputOutputManager;
 import com.mygdx.game.gameLogic.level.LevelManagement;
 import com.mygdx.game.gameLogic.level.LevelManager;
 import com.mygdx.game.gameLogic.level.LevelSpecifier;
-import com.mygdx.game.gameLogic.sound.SoundManagement;
-import com.mygdx.game.gameLogic.sound.SoundManager;
 import com.mygdx.game.gameEngine.screen.*;
 
 
@@ -44,7 +42,6 @@ public class GameInfoScreen extends Screens{
 	
 	private LevelManagement levelList;
     private EntityManagement entityList;
-    private SoundManagement sm;
     private ScreenManagement screenList;
 
     
@@ -71,7 +68,6 @@ public class GameInfoScreen extends Screens{
         screenList = ScreenManager.getInstance();
         batch = new SpriteBatch();
         font = new BitmapFont();
-        this.sm = SoundManager.getInstance();
 		background = level.getBgPath();
 		levelList = LevelManager.getInstance();
 

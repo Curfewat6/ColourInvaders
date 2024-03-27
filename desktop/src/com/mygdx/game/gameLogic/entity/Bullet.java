@@ -2,11 +2,8 @@ package com.mygdx.game.gameLogic.entity;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.mygdx.game.gameEngine.ai.AIManager;
 import com.mygdx.game.gameEngine.entity.*;
 
 public class Bullet extends Colliable{
@@ -38,9 +35,6 @@ public class Bullet extends Colliable{
 
 	@Override
 	public void update() {
-		posX += vel.x;
-		posY += vel.y;
-
 		if(posX < -100 || posX > 1000 || posY < -100 || posY > 1000){
 			destroyFlag = true;
 		}
@@ -58,4 +52,10 @@ public class Bullet extends Colliable{
 	public Rectangle getRectBound() {
 		return new Rectangle(posX,posY,tex.getWidth(),tex.getHeight());
 	}
+	public void setVel(Vector2 vel) {
+        this.vel = vel;
+    }
+    public Vector2 getVel() {
+        return vel;
+    }
 }

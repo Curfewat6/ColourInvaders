@@ -8,7 +8,6 @@ import com.mygdx.game.gameEngine.entity.EntityManagement;
 import com.mygdx.game.gameEngine.entity.EntityManager;
 import com.mygdx.game.gameEngine.entity.NonColliable;
 import com.mygdx.game.gameLogic.entity.Player;
-import com.mygdx.game.gameLogic.entity.Target;
 
 public class AIManager implements AIManagement{
 	

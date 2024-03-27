@@ -53,7 +53,7 @@ public class TitleScreen extends Screens{
 		screenList = ScreenManager.getInstance();
 		levelList = LevelManager.getInstance();
 		background = level.getBgPath();
-
+		em.dispose();
 		soundsManager.stop("music");
 	}
 	

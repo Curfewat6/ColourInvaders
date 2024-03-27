@@ -214,7 +214,7 @@ public class GameScreen extends Screens implements PauseCallBack{
 	public void render(float delta) {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		fitViewport.apply();
-		keyPressed = ioManager.handleInput();
+		//keyPressed = ioManager.handleInput();
 	    if (!isPaused) 
 	    {
 			word = playerMovement.PlayerMove();
@@ -284,7 +284,6 @@ public class GameScreen extends Screens implements PauseCallBack{
 
 	@Override
 	public void togglePause() {
-		// TODO Auto-generated method stub
 		isPaused = !isPaused;
 		if(isPaused){
 			pause();

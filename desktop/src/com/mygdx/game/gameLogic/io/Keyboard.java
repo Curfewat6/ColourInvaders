@@ -1,10 +1,6 @@
 package com.mygdx.game.gameLogic.io;
-import java.util.ArrayList;
-import java.util.List;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.mygdx.game.gameEngine.pcm.PlayerControlManagement;
 import com.mygdx.game.gameEngine.screen.PauseCallBack;
 
@@ -13,38 +9,31 @@ public class Keyboard {
     private PlayerControlManagement pcm;
     private boolean isPaused = false;
     private StringBuilder inputBuffer = new StringBuilder();
-    private boolean isCapturing = true;
 
     public Keyboard(PlayerControlManagement playerControl) {
         this.pcm = playerControl;
     }
-
-    private void captureTypingInput() {
-        if (!isCapturing) return;
-
-        // Only play with the 26 alphabets. all upper case 
-        for (int i = 29; i < 55; i++) {
-            if (Gdx.input.isKeyJustPressed(i)) {
-                // I add 36 because the raw key code is not translated </3
-                char typedChar = (char) (i + 36);
-                
-                inputBuffer.append(typedChar);
-            }
-        }
+    
+    public void setPause(){
+        isPaused = false;
     }
 
     public String handleKeyInput(PauseCallBack pcb) {
        // boolean directionKeyPressed = false;
-    
+       setPause();
         if (Gdx.input.isKeyJustPressed(Keys.ESCAPE)) {
            
             if (pcb != null) {
                 System.out.println("PAUSE");
                 pcb.togglePause();
-                
                 System.out.println(pcb);
                 isPaused = !isPaused;
-                return "pause";
+                if(isPaused == true){
+                    return "pause";
+                }
+                else{
+                    return "unpause";
+                }
             }
         } else if(!isPaused){
             if (Gdx.input.isKeyPressed(Keys.LEFT)) {

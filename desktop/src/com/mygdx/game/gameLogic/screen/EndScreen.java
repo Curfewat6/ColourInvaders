@@ -34,6 +34,7 @@ public class EndScreen extends Screens{
 	private LevelManagement levelList;
 
 	private Label title;
+	private Label score;
 	private Skin skin;
 	private TextButton mainMenuButton;
 	private FitViewport fitViewport;
@@ -41,7 +42,7 @@ public class EndScreen extends Screens{
 	private String background;
 
 
-	public EndScreen(Game game, String name, LevelSpecifier level) 
+	public EndScreen(Game game, String name, String bgPath) 
 	{
 		super(game, Width, Height); 
 		setName(name);
@@ -49,7 +50,7 @@ public class EndScreen extends Screens{
 		screenList = ScreenManager.getInstance();
 		levelList = LevelManager.getInstance();
 		
-		background = level.getBgPath();
+		background = bgPath;
 
 	}
 	
@@ -61,8 +62,11 @@ public class EndScreen extends Screens{
 		
 		Gdx.input.setInputProcessor(getStage());
 
-		title = new Label("YAYYYY Game over!!!", skin);
+		title = new Label("CONGRATULATIONS!!", skin);
 		title.setPosition(Screens.Width / 2 - title.getWidth() / 2, Screens.Height / 2 + 100);
+		
+	    score = new Label("YOUR SCORE: " + GameScreen.finalScore, skin);
+	    score.setPosition(Screens.Width / 2 - score.getWidth() / 2, Screens.Height / 2 + 80);
 		mainMenuButton = new TextButton("MainMenu", skin);
 		mainMenuButton.setPosition(Screens.Width / 2 - mainMenuButton.getWidth() / 2, Screens.Height / 2);
 
@@ -84,12 +88,13 @@ public class EndScreen extends Screens{
 		 
 	    getStage().addActor(getBackgroundImage());
 	    getStage().addActor(title);
+	    getStage().addActor(score);
 	    getStage().addActor(mainMenuButton);
 	}
 
 	@Override
 	public void show() {
-	    skin = new Skin(Gdx.files.internal("uiskin.json")); 
+	    skin = new Skin(Gdx.files.internal("uiskin.json"));
 	    setTexture(new Texture(background));
 	    create();
 	    resetEM();

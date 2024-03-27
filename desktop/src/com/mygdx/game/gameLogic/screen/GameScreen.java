@@ -77,11 +77,14 @@ public class GameScreen extends Screens implements PauseCallBack{
 	Label wordLabel;
 	String word;
 	float spawnTime ;
-	float spawnTimeInterval ;
+	float spawnTimeInterval;
 	Label scoreLabel;
 	int score = 0;
+	
+    public static int finalScore;
 
-	public GameScreen(Game game, String name, LevelSpecifier level) 
+
+	public GameScreen(Game game, String name, String bgPath) 
 	{
 		super(game, Width, Height);
 		setName(name);
@@ -94,7 +97,7 @@ public class GameScreen extends Screens implements PauseCallBack{
 		levelList = LevelManager.getInstance();
 		screenList = ScreenManager.getInstance();
 		entityCreation = EntityFactory.getInstance();
-		background = level.getBgPath();
+		background = bgPath;
 		
 		batch = new SpriteBatch();
 		EntityManager.getInstance().batch = batch;
@@ -121,6 +124,8 @@ public class GameScreen extends Screens implements PauseCallBack{
 		    @Override
 		    public void clicked(InputEvent event, float x, float y) {
 		        super.clicked(event, x, y);
+				soundsManager.stop("music");
+				score = 0;
 		        event.stop(); // Consume the event to prevent it from propagating further
 		    }
 		});
@@ -175,7 +180,7 @@ public class GameScreen extends Screens implements PauseCallBack{
 	public void pause() {
 		pauseMenu.show(getStage());
 	    isPaused = true;
-		
+		 
 	}
 
 	@Override
@@ -224,6 +229,7 @@ public class GameScreen extends Screens implements PauseCallBack{
 			ScreenBounds();
 
 			if(player.getLives() <= 0){
+			    GameScreen.finalScore = score; // Assign the score to the static variable
 				soundsManager.stop("music");
 				screenList.getScreen("END");
 				return;

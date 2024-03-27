@@ -1,5 +1,6 @@
 package com.mygdx.game.gameLogic.screen;
 
+import com.mygdx.game.gameEngine.utils.Setting;
 import com.mygdx.game.gameEngine.utils.SoundsManager;
 import org.lwjgl.opengl.GL20;
 
@@ -36,23 +37,27 @@ public class TitleScreen extends Screens{
 	
 	private Skin skin;
 	private Label title;
-	private TextButton playButton;
 	private FitViewport fitViewport;
 	private LevelSpecifier level;
 	private String background;
+	
+	private TextButton playButton;
+	private TextButton guideButton;
+	private TextButton settingButton;
+
 
 	SoundsManager soundsManager = new SoundsManager();
 
 
 
-	public TitleScreen(Game game, String name, LevelSpecifier level) 
+	public TitleScreen(Game game, String name, String bgPath) 
 	{
 		super(game, Width, Height);
 		setName(name);
 		em = EntityManager.getInstance();
 		screenList = ScreenManager.getInstance();
 		levelList = LevelManager.getInstance();
-		background = level.getBgPath();
+		background = bgPath;
 
 		soundsManager.stop("music");
 	}
@@ -70,8 +75,7 @@ public class TitleScreen extends Screens{
 		
 	    playButton = new TextButton("Start", skin);
 		playButton.setSize(200,50);
-		playButton.setPosition(Screens.Width / 2 - playButton.getWidth() / 2, Screens.Height / 2);
-
+		playButton.setPosition(Screens.Width / 2 - playButton.getWidth() / 2, 300);
 	    playButton.addListener(new ClickListener() 
 	    {
 	        @Override
@@ -83,14 +87,39 @@ public class TitleScreen extends Screens{
 	        }
 	    });
 	    
+	    guideButton = new TextButton("How to play?", skin);
+	    guideButton.setSize(200,50);
+		guideButton.setPosition(Screens.Width / 2 - playButton.getWidth() / 2, 200);
+		guideButton.addListener(new ClickListener()
+		{
+			@Override
+			public void clicked(InputEvent event, float x, float y)
+			{
+				screenList.getScreen("GUIDE");
+			}
+		});
+
+		settingButton = new TextButton("Settings", skin);
+		settingButton.setSize(200,50);
+		settingButton.setPosition(Screens.Width / 2 - playButton.getWidth() / 2, 100);
+		settingButton.addListener(new ClickListener()
+		{
+			@Override
+			public void clicked(InputEvent event, float x, float y)
+			{
+				//screenList.getScreen("SETTING");
+			}	
+		});
+	    
 	    setBackgroundImage(new Image(getTexture()));
 	    getBackgroundImage().setSize(Screens.Width, Screens.Height);
 
-
-
         getStage().addActor(getBackgroundImage());
 	    getStage().addActor(title);
+	    getStage().addActor(guideButton);
 	    getStage().addActor(playButton);
+	    getStage().addActor(settingButton);
+
 
 	}
 

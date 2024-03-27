@@ -61,14 +61,14 @@ public class GameInfoScreen extends Screens{
 
 
 
-	public GameInfoScreen(Game game, String name, LevelSpecifier level){
+	public GameInfoScreen(Game game, String name, String bgPath){
         super(game, Width, Height);
 		setName(name);
         entityList = EntityManager.getInstance();
         screenList = ScreenManager.getInstance();
         batch = new SpriteBatch();
         font = new BitmapFont();
-		background = level.getBgPath();
+		background = bgPath;
 		levelList = LevelManager.getInstance();
 
 

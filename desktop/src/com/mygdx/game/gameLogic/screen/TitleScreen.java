@@ -64,8 +64,8 @@ public class TitleScreen extends Screens{
 		
 	    Gdx.input.setInputProcessor(getStage());
 		
-		title = new Label("Hello!", skin);
-		title.setPosition(Screens.Width / 2 - title.getWidth() / 2, Screens.Height / 2 + 100);
+		//title = new Label("Hello!", skin);
+		//title.setPosition(Screens.Width / 2 - title.getWidth() / 2, Screens.Height / 2 + 100);
 		
 	    playButton = new TextButton("Start", skin);
 		playButton.setSize(200,50);
@@ -109,7 +109,7 @@ public class TitleScreen extends Screens{
 	    getBackgroundImage().setSize(Screens.Width, Screens.Height);
 
         getStage().addActor(getBackgroundImage());
-	    getStage().addActor(title);
+	    //getStage().addActor(title);
 	    getStage().addActor(guideButton);
 	    getStage().addActor(playButton);
 	    getStage().addActor(settingButton);

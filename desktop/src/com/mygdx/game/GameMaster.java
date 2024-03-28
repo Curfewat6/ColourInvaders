@@ -55,13 +55,13 @@ public class GameMaster extends Game
 	    String[] GuideScreen = {"GuideScreen"};
 
 
-	    new ScreenCreate().createScreen(initialScreen, "TITLE", this, (ScreenManager) screenList, "background.jpg");
+	    new ScreenCreate().createScreen(initialScreen, "TITLE", this, (ScreenManager) screenList, "Titlescreen.jpg");
 	    new ScreenCreate().createScreen(GuideScreen, "GUIDE", this, (ScreenManager) screenList, "Intro.png");
 	    new ScreenCreate().createScreen(PoolScreen, "POOL", this, (ScreenManager) screenList, "Intro2.png");
-	    new ScreenCreate().createScreen(SettingScreen, "SETTING", this, (ScreenManager) screenList, "background.jpg");
-	    new ScreenCreate().createScreen(GameInfoScreen, "INFO", this, (ScreenManager) screenList, "background.jpg");
+	    new ScreenCreate().createScreen(SettingScreen, "SETTING", this, (ScreenManager) screenList, "Titlescreen.jpg");
+	    new ScreenCreate().createScreen(GameInfoScreen, "INFO", this, (ScreenManager) screenList, "Difficulty.jpg");
 	    new ScreenCreate().createScreen(GameScreen, "GAME1", this, (ScreenManager) screenList, "Gamebackground.jpg");
-	    new ScreenCreate().createScreen(EndScreen, "END", this, (ScreenManager) screenList, "background.jpg");
+	    new ScreenCreate().createScreen(EndScreen, "END", this, (ScreenManager) screenList, "Endscreen.jpg");
 	    
 	    screenList.getScreen("TITLE");
 		lifeCycle.startSimulation(entityList);

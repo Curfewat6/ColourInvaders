@@ -117,7 +117,7 @@ public class TitleScreen extends Screens{
 
         // Adding all the actors to the stage
         getStage().addActor(getBackgroundImage());
-	    getStage().addActor(title);
+	    //getStage().addActor(title);
 	    getStage().addActor(guideButton);
 	    getStage().addActor(playButton);
 	    getStage().addActor(settingButton);

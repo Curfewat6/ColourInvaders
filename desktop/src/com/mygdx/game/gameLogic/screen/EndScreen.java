@@ -57,16 +57,19 @@ public class EndScreen extends Screens{
 		// Setting a new input for the current stage
 		Gdx.input.setInputProcessor(getStage());
 
+	    Label.LabelStyle labelStyle = new Label.LabelStyle();
+	    labelStyle.font = skin.getFont("default-font");
+	    labelStyle.fontColor = skin.getColor("black"); // Set font color to black using skin color definition
+
 		// Creation of the variables that would be displayed on the screen
-		// Title
-		title = new Label("CONGRATULATIONS!!", skin);
-		title.setPosition(Screens.Width / 2 - title.getWidth() / 2, Screens.Height / 2 + 100);
-		
 		// Displaying user final score
-	    score = new Label("YOUR SCORE: " + GameScreen.finalScore, skin);
-	    score.setPosition(Screens.Width / 2 - score.getWidth() / 2, Screens.Height / 2 + 80);
+	    score = new Label("" + GameScreen.finalScore, labelStyle);
+	    score.setPosition(Screens.Width / 2 - score.getWidth() / 2 - 10, Screens.Height / 2 - 175);
+	    // Set font size for title
+	    score.setFontScale(2.0f);
+	    
 		mainMenuButton = new TextButton("MainMenu", skin);
-		mainMenuButton.setPosition(Screens.Width / 2 - mainMenuButton.getWidth() / 2, Screens.Height / 2);
+		mainMenuButton.setPosition(Screens.Width / 2 - mainMenuButton.getWidth() / 2, Screens.Height / 2 - 75);
 		mainMenuButton.addListener(new ClickListener() 
 	    {
 	        @Override
@@ -83,7 +86,6 @@ public class EndScreen extends Screens{
 
         // Adding all the actors to the stage
 	    getStage().addActor(getBackgroundImage());
-	    getStage().addActor(title);
 	    getStage().addActor(score);
 	    getStage().addActor(mainMenuButton);
 	}

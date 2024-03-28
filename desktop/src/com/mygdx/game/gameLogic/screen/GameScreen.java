@@ -1,9 +1,6 @@
 package com.mygdx.game.gameLogic.screen;
 
-import com.badlogic.gdx.math.Intersector;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
-import com.mygdx.game.gameEngine.entity.Colliable;
 import com.mygdx.game.gameEngine.utils.Setting;
 import com.mygdx.game.gameEngine.utils.SoundsManager;
 import com.mygdx.game.gameLogic.ai.AImovement;
@@ -13,73 +10,55 @@ import org.lwjgl.opengl.GL20;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.mygdx.game.gameEngine.ai.AIManagement;
-import com.mygdx.game.gameEngine.ai.AIManager;
-import com.mygdx.game.gameEngine.collision.CollisionManagement;
 import com.mygdx.game.gameEngine.collision.CollisionManager;
 import com.mygdx.game.gameEngine.entity.Entity;
 import com.mygdx.game.gameEngine.entity.EntityManagement;
 import com.mygdx.game.gameEngine.entity.EntityManager;
 import com.mygdx.game.gameLogic.io.InputOutManagement;
 import com.mygdx.game.gameLogic.io.InputOutputManager;
-import com.mygdx.game.gameLogic.level.LevelManagement;
 import com.mygdx.game.gameLogic.level.LevelManager;
-import com.mygdx.game.gameLogic.level.LevelSpecifier;
 import com.mygdx.game.gameLogic.pcm.PlayerMovement;
-import com.mygdx.game.gameEngine.pcm.PlayerControlManagement;
 import com.mygdx.game.gameEngine.pcm.PlayerControlManager;
 import com.mygdx.game.gameEngine.screen.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class GameScreen extends Screens implements PauseCallBack{
 	private Skin skin;
 	private EntityManagement entityList;
-	private CollisionManagement collisionManager;
-	private PlayerControlManagement playerControl;
 	private InputOutManagement ioManager;
-	private AIManagement aiManager;
 	private ScreenManagement screenList;
-	private LevelManagement levelList;
 	private Collision collision;
 	private EntityFactory entityCreation;
 
 	private Dialog pauseMenu;
 	private boolean isPaused = false;
     private SpriteBatch batch;
-    private BitmapFont font;
-	private FitViewport fitViewport;
+    private FitViewport fitViewport;
 	private String keyPressed;
-	private LevelSpecifier level;
 	private String background;
 
-	SoundsManager soundsManager;
-	AImovement aiMovement;
-	PlayerMovement playerMovement;
+	private SoundsManager soundsManager;
+	private AImovement aiMovement;
+	private PlayerMovement playerMovement;
 
 
-	Player player;
-	Cannon cannon;
+	private Player player;
+	private Cannon cannon;
 
-	Label wordLabel;
-	String word;
-	float spawnTime ;
-	float spawnTimeInterval;
-	Label scoreLabel;
-	int score = 0;
+	private Label wordLabel;
+	private String word;
+	private float spawnTime ;
+	private float spawnTimeInterval;
+	private Label scoreLabel;
+	private int score = 0;
 	
     public static int finalScore;
 
@@ -89,19 +68,19 @@ public class GameScreen extends Screens implements PauseCallBack{
 		super(game, Width, Height);
 		setName(name);
 		entityList = EntityManager.getInstance();
-		playerControl = PlayerControlManager.getInstance();
+		PlayerControlManager.getInstance();
 		ioManager = InputOutputManager.getInstance();
 		ioManager.setPauseCallback(this);
-		collisionManager = CollisionManager.getInstance();
+		CollisionManager.getInstance();
 		collision = Collision.getInstance();
-		levelList = LevelManager.getInstance();
+		LevelManager.getInstance();
 		screenList = ScreenManager.getInstance();
 		entityCreation = EntityFactory.getInstance();
 		background = bgPath;
 		
 		batch = new SpriteBatch();
 		EntityManager.getInstance().batch = batch;
-		font = new BitmapFont();
+		new BitmapFont();
 	}
 	
 	public void create()
@@ -221,7 +200,7 @@ public class GameScreen extends Screens implements PauseCallBack{
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		fitViewport.apply();
 		keyPressed = ioManager.handleInput();
-		if (keyPressed.startsWith("pause")) {
+		if(keyPressed.startsWith("pause")){
 			togglePause();
 		}
 	    if (!isPaused) 

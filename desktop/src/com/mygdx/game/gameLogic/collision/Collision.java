@@ -38,7 +38,7 @@ public class Collision {
 					if(e.getPosY() <= 80){
 						player.setLives(player.getLives()-1);
 						e.setDestroyFlag(true);
-						score -= 1;
+						//score -= 1;
 						if(score < 0){
 							score = 0;
 						}
@@ -73,7 +73,7 @@ public class Collision {
 								Explosion explosion = (Explosion) entityCreation.createEntity(EntityEnum.EXPLOSION,entityList,otherE,e);
 								addedEntities.add(explosion);
 								e.setDestroyFlag(true);
-								score -= 1;
+								//score -= 1;
 								if(score < 0){
 									score = 0;
 								}

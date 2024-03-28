@@ -58,7 +58,6 @@ public class TitleScreen extends Screens{
 		screenList = ScreenManager.getInstance();
 		levelList = LevelManager.getInstance();
 		background = bgPath;
-		
 		soundsManager.stop("music");
 	}
 	

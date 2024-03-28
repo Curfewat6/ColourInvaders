@@ -15,6 +15,8 @@ public class ScreenFactory {
 			return new GuideScreen(game, name, bgPath);
 		case POOLSCREEN:
 			return new PoolScreen(game, name, bgPath);
+		case SETTINGSCREEN:
+			return new SettingScreen(game, name, bgPath);
 		case GAMEINFOSCREEN:
 			return new GameInfoScreen(game, name, bgPath);
 		case GAMESCREEN:

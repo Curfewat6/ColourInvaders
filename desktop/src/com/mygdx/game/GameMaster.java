@@ -56,6 +56,7 @@ public class GameMaster extends Game
 	    String[] initialScreen = {"TitleScreen"};
 	    String[] GameInfoScreen = {"GameInfoScreen"};
 	    String[] PoolScreen = {"PoolScreen"};
+	    String[] SettingScreen = {"SettingScreen"};
 	    String[] GameScreen = {"GameScreen"};
 	    String[] EndScreen = {"EndScreen"};
 	    String[] GuideScreen = {"GuideScreen"};
@@ -64,6 +65,7 @@ public class GameMaster extends Game
 	    new ScreenCreate().createScreen(initialScreen, "TITLE", this, (ScreenManager) screenList, "background.jpg");
 	    new ScreenCreate().createScreen(GuideScreen, "GUIDE", this, (ScreenManager) screenList, "Intro.png");
 	    new ScreenCreate().createScreen(PoolScreen, "POOL", this, (ScreenManager) screenList, "Intro2.png");
+	    new ScreenCreate().createScreen(SettingScreen, "SETTING", this, (ScreenManager) screenList, "background.jpg");
 	    new ScreenCreate().createScreen(GameInfoScreen, "INFO", this, (ScreenManager) screenList, "background.jpg");
 	    new ScreenCreate().createScreen(GameScreen, "GAME1", this, (ScreenManager) screenList, "Gamebackground.jpg");
 	    new ScreenCreate().createScreen(EndScreen, "END", this, (ScreenManager) screenList, "background.jpg");

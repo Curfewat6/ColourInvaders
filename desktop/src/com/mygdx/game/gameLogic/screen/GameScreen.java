@@ -76,6 +76,8 @@ public class GameScreen extends Screens implements PauseCallBack{
 		LevelManager.getInstance();
 		screenList = ScreenManager.getInstance();
 		entityCreation = EntityFactory.getInstance();
+		soundsManager = SoundsManager.getInstance();
+
 		background = bgPath;
 		
 		batch = new SpriteBatch();
@@ -133,7 +135,6 @@ public class GameScreen extends Screens implements PauseCallBack{
 		getStage().addActor(wordLabel);
 		getStage().addActor(scoreLabel);
 
-		soundsManager = new SoundsManager();
 		soundsManager.music();
 
 		aiMovement = new AImovement();
@@ -231,6 +232,7 @@ public class GameScreen extends Screens implements PauseCallBack{
 		wordLabel.setText(word);
 		wordLabel.setPosition(player.getPosX() + 150 - wordLabel.getWidth(),100);
 		changeTextColor(word);
+        scoreLabel.setPosition(player.getPosX() + 200, player.getPosY() + 20);
 		scoreLabel.setText("Score: " + String.valueOf(score));
 	}
 
@@ -255,6 +257,14 @@ public class GameScreen extends Screens implements PauseCallBack{
 
 	@Override
 	public void resize(int width, int height) {
+		//player.setPosX(height/2);
+		//player.setPosY(width/2);
+		cannon.setPosY(10);
+		cannon.setPosX(300);
+		
+		player.setPosX(450);
+		player.setPosY(10);
+		
 		getStage().getViewport().update(width, height, true);
 	}
 

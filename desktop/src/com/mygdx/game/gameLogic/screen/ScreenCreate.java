@@ -27,6 +27,11 @@ public class ScreenCreate extends ScreenManager{
             	Screens PoolScreen = (Screens) ScreenFactory.getScreen(ScreenEnum.POOLSCREEN, name, game, pgPath);
             	manager.addScreen(PoolScreen);
             }
+			if (arg.startsWith("SettingScreen"))
+            {
+            	Screens SettingScreen = (Screens) ScreenFactory.getScreen(ScreenEnum.SETTINGSCREEN, name, game, pgPath);
+            	manager.addScreen(SettingScreen);
+            }
 			if (arg.startsWith("GameInfoScreen"))
             {
             	Screens GameInfoScreen = (Screens) ScreenFactory.getScreen(ScreenEnum.GAMEINFOSCREEN, name, game, pgPath);

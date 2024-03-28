@@ -15,7 +15,6 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.mygdx.game.gameEngine.screen.ScreenManagement;
 import com.mygdx.game.gameEngine.screen.ScreenManager;
 import com.mygdx.game.gameEngine.screen.Screens;
-import com.mygdx.game.gameLogic.level.LevelSpecifier;
 
 public class GuideScreen extends Screens{
 	

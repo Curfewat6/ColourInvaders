@@ -11,10 +11,10 @@ import com.mygdx.game.gameLogic.lifecycle.EnemyAssetsFactory;
 import java.util.Random;
 
 public class Enemy extends Colliable {
-    Vector2 vel;
-    String color;
+    private Vector2 vel;
+    private String color;
     public Enemy() {
-        super(EnemyAssetsFactory.getInstance().getRandom(), Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight(), 0);
+        super(EnemyAssetsFactory.getInstance().getRandom(), Gdx.graphics.getWidth()/2, 500, 0);
         Random random = new Random();
         posX = 50 + random.nextInt(300);
 
@@ -59,5 +59,9 @@ public class Enemy extends Colliable {
     }
     public Vector2 getVel() {
         return vel;
+    }
+    @Override
+    public void dispose() {
+        tex.dispose();
     }
 }

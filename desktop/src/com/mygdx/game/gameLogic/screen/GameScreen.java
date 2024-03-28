@@ -24,7 +24,6 @@ import com.mygdx.game.gameEngine.entity.EntityManagement;
 import com.mygdx.game.gameEngine.entity.EntityManager;
 import com.mygdx.game.gameLogic.io.InputOutManagement;
 import com.mygdx.game.gameLogic.io.InputOutputManager;
-import com.mygdx.game.gameLogic.level.LevelManager;
 import com.mygdx.game.gameLogic.pcm.PlayerMovement;
 import com.mygdx.game.gameEngine.pcm.PlayerControlManager;
 import com.mygdx.game.gameEngine.screen.*;
@@ -73,9 +72,10 @@ public class GameScreen extends Screens implements PauseCallBack{
 		ioManager.setPauseCallback(this);
 		CollisionManager.getInstance();
 		collision = Collision.getInstance();
-		LevelManager.getInstance();
 		screenList = ScreenManager.getInstance();
 		entityCreation = EntityFactory.getInstance();
+		soundsManager = SoundsManager.getInstance();
+
 		background = bgPath;
 		
 		batch = new SpriteBatch();
@@ -86,6 +86,7 @@ public class GameScreen extends Screens implements PauseCallBack{
 	public void create()
 	{
 		fitViewport = new FitViewport(Screens.Width, Screens.Height);
+		score = 0;
 		Stage newStage = new Stage(fitViewport);
 		setStage(newStage);
 		Gdx.input.setInputProcessor(getStage());
@@ -104,7 +105,6 @@ public class GameScreen extends Screens implements PauseCallBack{
 		    public void clicked(InputEvent event, float x, float y) {
 		        super.clicked(event, x, y);
 				soundsManager.stop("music");
-				score = 0;
 		        event.stop(); // Consume the event to prevent it from propagating further
 		    }
 		});
@@ -122,17 +122,17 @@ public class GameScreen extends Screens implements PauseCallBack{
 		skin = new Skin(Gdx.files.internal("uiskin.json"));
 
 		word = "BLUE";
+		word.toUpperCase();
 		wordLabel = new Label(word,skin);
 		wordLabel.setFontScale(2.2f);
 		scoreLabel = new Label("Score: 0",skin);
 		scoreLabel.setFontScale(1.5f);
-		scoreLabel.setPosition(player.getPosX() + 200,player.getPosY() + 20);
+		scoreLabel.setPosition(player.getPosX(),player.getPosY() + 20);
 		scoreLabel.setColor(Color.CYAN);
 
 		getStage().addActor(wordLabel);
 		getStage().addActor(scoreLabel);
 
-		soundsManager = new SoundsManager();
 		soundsManager.music();
 
 		aiMovement = new AImovement();
@@ -176,23 +176,23 @@ public class GameScreen extends Screens implements PauseCallBack{
 	    create();
 	}
 	
-	private void ScreenBounds() {
-	    int screenWidth = Gdx.graphics.getWidth();
-	    int screenHeight = Gdx.graphics.getHeight();
+	// private void ScreenBounds() {
+	//     int screenWidth = Gdx.graphics.getWidth();
+	//     int screenHeight = Gdx.graphics.getHeight();
 
-	    for (int i = 0; i < entityList.getEntities().size(); i++){
-	   		Entity a = entityList.getEntities().get(i);
-			   	if (!(a instanceof Player)) {
-		             continue;
-		        }	
-		        Player player = (Player) a;
-		        float newX = Math.max(0, Math.min(player.getPosX(), screenWidth - 64));
-		 	    float newY = Math.max(0, Math.min(player.getPosY(), screenHeight - 64));
+	//     for (int i = 0; i < entityList.getEntities().size(); i++){
+	//    		Entity a = entityList.getEntities().get(i);
+	// 		   	if (!(a instanceof Player)) {
+	// 	             continue;
+	// 	        }	
+	// 	        Player player = (Player) a;
+	// 	        float newX = Math.max(0, Math.min(player.getPosX(), screenWidth - 64));
+	// 	 	    float newY = Math.max(0, Math.min(player.getPosY(), screenHeight - 64));
 
-		 	    player.setPosX(newX);
-		 	    player.setPosY(newY);
-	    }
-	}
+	// 	 	    player.setPosX(newX);
+	// 	 	    player.setPosY(newY);
+	//     }
+	// }
 
 	@Override
 	public void render(float delta) {
@@ -208,7 +208,7 @@ public class GameScreen extends Screens implements PauseCallBack{
 	        entityList.update();
 			aiMovement.aiMovement();
 			
-			ScreenBounds();
+			//ScreenBounds();
 
 			if(player.getLives() <= 0){
 			    GameScreen.finalScore = score; // Assign the score to the static variable
@@ -255,14 +255,13 @@ public class GameScreen extends Screens implements PauseCallBack{
 
 	@Override
 	public void resize(int width, int height) {
-		//player.setPosX(height/2);
-		//player.setPosY(width/2);
+		
 		cannon.setPosY(10);
 		cannon.setPosX(300);
 		
 		player.setPosX(450);
 		player.setPosY(10);
-		
+
 		getStage().getViewport().update(width, height, true);
 	}
 

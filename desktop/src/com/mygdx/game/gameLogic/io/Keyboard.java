@@ -19,16 +19,17 @@ public class Keyboard {
     }
 
     public String handleKeyInput(PauseCallBack pcb) {
-       // boolean directionKeyPressed = false;
        setPause();
         if (Gdx.input.isKeyJustPressed(Keys.ESCAPE)) {
            
             if (pcb != null) {
-                System.out.println("PAUSE");
                 //pcb.togglePause();
                 System.out.println(pcb);
                 isPaused = !isPaused;
-                return "pause";
+                if(isPaused){
+                    System.out.println("PAUSE");
+                    return "pause";
+                }
             }
         } else if(!isPaused){
             if (Gdx.input.isKeyPressed(Keys.LEFT)) {

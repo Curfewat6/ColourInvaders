@@ -8,8 +8,8 @@ import com.mygdx.game.gameEngine.entity.*;
 
 public class Bullet extends Colliable{
 	
-    Vector2 vel;
-	String color;
+    private Vector2 vel;
+	private String color;
 
 	public Bullet( float posX, float posY,float dirX,float dirY,String color) {
 		super("b_blue.png", posX, posY, 10);
@@ -58,4 +58,8 @@ public class Bullet extends Colliable{
     public Vector2 getVel() {
         return vel;
     }
+	@Override
+	public void dispose() {
+		tex.dispose();
+	}
 }

@@ -10,10 +10,10 @@ import com.mygdx.game.gameEngine.entity.EntityManagement;
 
 public class EntityFactory {
 
-    Player player;
-    Cannon cannon;
-    Enemy enemy;
-    Explosion explosion;
+    private Player player;
+    private Cannon cannon;
+    private Enemy enemy;
+    private Explosion explosion;
 
     private static EntityFactory instance;
 

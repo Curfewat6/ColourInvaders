@@ -13,7 +13,7 @@ public class PlayerMovement {
     private PlayerControlManager playerManager;
     private InputOutputManager ioManager;
     private String keyPressed;
-    private String word = "blue";
+    private String word = "";
 
     public String PlayerMove() {
         entityManager = EntityManager.getInstance();

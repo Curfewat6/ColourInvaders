@@ -14,8 +14,8 @@ import com.mygdx.game.gameLogic.lifecycle.EnemyAssetsFactory;
 import java.util.Random;
 
 public class Cannon extends NonColliable {
-    Texture texture;
-    Texture wheelTexture;
+    private Texture texture;
+    private Texture wheelTexture;
 
     float angle = 0;
     float rotateSpeed = 0;
@@ -86,5 +86,10 @@ public class Cannon extends NonColliable {
         batch.draw(texture,posX,posY,22,22,texture.getWidth(),texture.getHeight(),1,1,angle,0,0,texture.getWidth(),texture.getHeight(),false,false);
         batch.draw(wheelTexture,posX + 5,posY);
         batch.end();
+    }
+    @Override
+    public void dispose() {
+        texture.dispose();
+        wheelTexture.dispose();
     }
 }

@@ -15,9 +15,6 @@ import com.mygdx.game.gameEngine.screen.ScreenManagement;
 import com.mygdx.game.gameEngine.io.InputOutManagement;
 import com.mygdx.game.gameEngine.io.InputOutputManager;
 import com.mygdx.game.gameEngine.screen.ScreenManager;
-import com.mygdx.game.gameLogic.level.LevelManagement;
-import com.mygdx.game.gameLogic.level.LevelManager;
-import com.mygdx.game.gameLogic.level.LevelSpecifier;
 import com.mygdx.game.gameLogic.screen.ScreenCreate;
 
 
@@ -31,9 +28,6 @@ public class GameMaster extends Game
 	private CollisionManagement collision;
 	private PlayerControlManagement playerControl;
 	private InputOutManagement ioManager;
-	private LevelManagement levelList;
-	
-	private LevelSpecifier level;
 	
 
 
@@ -47,7 +41,6 @@ public class GameMaster extends Game
 	    collision = CollisionManager.getInstance();
 	    playerControl = PlayerControlManager.getInstance();
 		ioManager = InputOutputManager.getInstance();
-		levelList = LevelManager.getInstance();
 		
 		//levelList.addLevel(new LevelSpecifier(0, "background.jpg", entityList, 0));
 		//levelList.addLevel(new LevelSpecifier(1, "Gamebackground.jpg", entityList, 10));
@@ -56,6 +49,7 @@ public class GameMaster extends Game
 	    String[] initialScreen = {"TitleScreen"};
 	    String[] GameInfoScreen = {"GameInfoScreen"};
 	    String[] PoolScreen = {"PoolScreen"};
+	    String[] SettingScreen = {"SettingScreen"};
 	    String[] GameScreen = {"GameScreen"};
 	    String[] EndScreen = {"EndScreen"};
 	    String[] GuideScreen = {"GuideScreen"};
@@ -64,6 +58,7 @@ public class GameMaster extends Game
 	    new ScreenCreate().createScreen(initialScreen, "TITLE", this, (ScreenManager) screenList, "background.jpg");
 	    new ScreenCreate().createScreen(GuideScreen, "GUIDE", this, (ScreenManager) screenList, "Intro.png");
 	    new ScreenCreate().createScreen(PoolScreen, "POOL", this, (ScreenManager) screenList, "Intro2.png");
+	    new ScreenCreate().createScreen(SettingScreen, "SETTING", this, (ScreenManager) screenList, "background.jpg");
 	    new ScreenCreate().createScreen(GameInfoScreen, "INFO", this, (ScreenManager) screenList, "background.jpg");
 	    new ScreenCreate().createScreen(GameScreen, "GAME1", this, (ScreenManager) screenList, "Gamebackground.jpg");
 	    new ScreenCreate().createScreen(EndScreen, "END", this, (ScreenManager) screenList, "background.jpg");

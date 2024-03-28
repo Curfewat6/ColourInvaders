@@ -31,18 +31,6 @@ public class Collision {
         CollisionManager collisionManager = CollisionManager.getInstance();
         EntityManager entityList = EntityManager.getInstance();
         EntityFactory entityCreation = EntityFactory.getInstance();
-
-        // boolean collisionDetected = collisionManager.checkCollision();
-        
-        // if (collisionDetected) {
-        //     // Handle collision here
-        //     System.out.println("Collision detected!");
-        //     // Perform actions like stopping the game, reducing player health, etc.
-        // } else {
-        //     // No collision detected
-        //     System.out.println("No collision detected.");
-        //     // Perform other actions if needed
-        // }
         List<Entity> addedEntities  = new ArrayList<>();
 
 	        for(Entity e : entityList.getEntities()){

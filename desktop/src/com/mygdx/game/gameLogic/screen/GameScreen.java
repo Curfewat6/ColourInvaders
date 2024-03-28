@@ -126,6 +126,7 @@ public class GameScreen extends Screens implements PauseCallBack{
 		        super.clicked(event, x, y);
 				soundsManager.stop("music");
 				score = 0;
+				//entityList.dispose();
 		        event.stop(); // Consume the event to prevent it from propagating further
 		    }
 		});
@@ -219,7 +220,10 @@ public class GameScreen extends Screens implements PauseCallBack{
 	public void render(float delta) {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		fitViewport.apply();
-		//keyPressed = ioManager.handleInput();
+		keyPressed = ioManager.handleInput();
+		if (keyPressed.startsWith("pause")) {
+			togglePause();
+		}
 	    if (!isPaused) 
 	    {
 			word = playerMovement.PlayerMove();

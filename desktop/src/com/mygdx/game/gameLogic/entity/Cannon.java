@@ -22,7 +22,7 @@ public class Cannon extends NonColliable {
     Bullet bullet;
 
     public Cannon() {
-        super("",Gdx.graphics.getWidth()/2 - 22, 5, 0);
+        super("",Gdx.graphics.getWidth()/2- 22, 5, 0);
         texture = new Texture("cannon.png");
         wheelTexture = new Texture("wheel.png");
     }
@@ -74,5 +74,10 @@ public class Cannon extends NonColliable {
         batch.draw(texture,posX,posY,22,22,texture.getWidth(),texture.getHeight(),1,1,angle,0,0,texture.getWidth(),texture.getHeight(),false,false);
         batch.draw(wheelTexture,posX + 5,posY);
         batch.end();
+    }
+    @Override
+    public void dispose() {
+        texture.dispose();
+        wheelTexture.dispose();
     }
 }

@@ -58,4 +58,8 @@ public class Bullet extends Colliable{
     public Vector2 getVel() {
         return vel;
     }
+	@Override
+	public void dispose() {
+		tex.dispose();
+	}
 }

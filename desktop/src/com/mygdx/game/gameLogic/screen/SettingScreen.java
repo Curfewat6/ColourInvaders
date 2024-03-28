@@ -33,6 +33,9 @@ public class SettingScreen extends Screens{
 	private TextButton homeButton;
     private Label volumeLabel;
 	private Skin skin;
+	
+	// Add a field to store the volume
+    private float savedVolume = 0.5f;
 
 	public SettingScreen(Game game, String name, String bgPath) {
 		
@@ -63,14 +66,13 @@ public class SettingScreen extends Screens{
         volumeSlider = new Slider(0f, 1f, 0.1f, false, skin);
         volumeSlider.setPosition(Screens.Width / 2 - volumeSlider.getWidth() / 2, Screens.Height / 2);
 
-        volumeSlider.setValue(0.5f); // Default or saved value
+        volumeSlider.setValue(savedVolume); // Default or saved value
         volumeSlider.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 float volume = volumeSlider.getValue();
-                System.out.println("Slider Volume Changed: " + volume); // Debugging print statement
-
-                soundsManager.setGlobalVolume(volume); // Use SoundsManager to adjust volume
+                savedVolume = volume; // Save the current volume value
+                soundsManager.setGlobalVolume(volume); // Adjust volume
             }
         });
         
@@ -102,9 +104,10 @@ public class SettingScreen extends Screens{
 	@Override
 	public void show() {
 	    skin = new Skin(Gdx.files.internal("uiskin.json")); 
-	    
 	    setTexture(new Texture(background));
 	    create();
+        volumeSlider.setValue(savedVolume); // Ensure the volume slider is set to the saved value
+
 				
 	}
 

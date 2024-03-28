@@ -25,15 +25,10 @@ public class Keyboard {
            
             if (pcb != null) {
                 System.out.println("PAUSE");
-                pcb.togglePause();
+                //pcb.togglePause();
                 System.out.println(pcb);
                 isPaused = !isPaused;
-                if(isPaused == true){
-                    return "pause";
-                }
-                else{
-                    return "unpause";
-                }
+                return "pause";
             }
         } else if(!isPaused){
             if (Gdx.input.isKeyPressed(Keys.LEFT)) {

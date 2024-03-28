@@ -58,7 +58,6 @@ public class TitleScreen extends Screens{
 		screenList = ScreenManager.getInstance();
 		levelList = LevelManager.getInstance();
 		background = bgPath;
-		em.dispose();
 		soundsManager.stop("music");
 	}
 	
@@ -135,6 +134,7 @@ public class TitleScreen extends Screens{
 
 	@Override
 	public void render(float delta) {
+		em.dispose();
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		if (Gdx.input.isTouched()) {
 		    System.out.println("Screen touched at: " + Gdx.input.getX() + ", " + Gdx.input.getY());

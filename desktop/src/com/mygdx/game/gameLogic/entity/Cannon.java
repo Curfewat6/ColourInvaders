@@ -22,7 +22,7 @@ public class Cannon extends NonColliable {
     Bullet bullet;
 
     public Cannon() {
-        super("",Gdx.graphics.getWidth()/2 - 22, 5, 0);
+        super("",Gdx.graphics.getWidth()/2, 5, 0);
         texture = new Texture("cannon.png");
         wheelTexture = new Texture("wheel.png");
     }

@@ -50,7 +50,7 @@ public class Collision {
 					if(e.getPosY() <= 80){
 						player.setLives(player.getLives()-1);
 						e.setDestroyFlag(true);
-						score -= 1;
+						//score -= 1;
 						if(score < 0){
 							score = 0;
 						}
@@ -69,7 +69,7 @@ public class Collision {
 						Rectangle b = ((Colliable)otherE).getRectBound();
 
 						if(collisionManager.rectCollide(a,b)){
-							if(((Bullet) e).getColor().equals(((Enemy)otherE).getColor())){
+							if(((Bullet) e).getColor().toUpperCase().equals(((Enemy)otherE).getColor().toUpperCase())){
 								score += 1;
 								if(player.getLives() < 3){
 									player.setLives(player.getLives()+1);
@@ -85,7 +85,7 @@ public class Collision {
 								Explosion explosion = (Explosion) entityCreation.createEntity(EntityEnum.EXPLOSION,entityList,otherE,e);
 								addedEntities.add(explosion);
 								e.setDestroyFlag(true);
-								score -= 1;
+								//score -= 1;
 								if(score < 0){
 									score = 0;
 								}

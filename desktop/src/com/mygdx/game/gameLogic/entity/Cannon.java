@@ -14,8 +14,8 @@ import com.mygdx.game.gameLogic.lifecycle.EnemyAssetsFactory;
 import java.util.Random;
 
 public class Cannon extends NonColliable {
-    Texture texture;
-    Texture wheelTexture;
+    private Texture texture;
+    private Texture wheelTexture;
 
     float angle = 0;
     float rotateSpeed = 0;

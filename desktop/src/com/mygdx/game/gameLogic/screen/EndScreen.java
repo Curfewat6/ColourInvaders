@@ -18,9 +18,6 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.game.gameEngine.entity.EntityManagement;
 import com.mygdx.game.gameEngine.entity.EntityManager;
-import com.mygdx.game.gameLogic.level.LevelManagement;
-import com.mygdx.game.gameLogic.level.LevelManager;
-import com.mygdx.game.gameLogic.level.LevelSpecifier;
 import com.mygdx.game.gameLogic.entity.Player;
 import com.mygdx.game.gameEngine.screen.*;
 
@@ -31,14 +28,12 @@ public class EndScreen extends Screens{
 	
 	private EntityManagement em;
 	private ScreenManagement screenList;
-	private LevelManagement levelList;
 
 	private Label title;
 	private Label score;
 	private Skin skin;
 	private TextButton mainMenuButton;
 	private FitViewport fitViewport;
-	private LevelSpecifier level;
 	private String background;
 
 
@@ -48,7 +43,6 @@ public class EndScreen extends Screens{
 		setName(name);
 		em = EntityManager.getInstance();
 		screenList = ScreenManager.getInstance();
-		levelList = LevelManager.getInstance();
 		
 		background = bgPath;
 

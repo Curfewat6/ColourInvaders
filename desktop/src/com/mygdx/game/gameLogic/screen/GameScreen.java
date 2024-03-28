@@ -24,7 +24,6 @@ import com.mygdx.game.gameEngine.entity.EntityManagement;
 import com.mygdx.game.gameEngine.entity.EntityManager;
 import com.mygdx.game.gameLogic.io.InputOutManagement;
 import com.mygdx.game.gameLogic.io.InputOutputManager;
-import com.mygdx.game.gameLogic.level.LevelManager;
 import com.mygdx.game.gameLogic.pcm.PlayerMovement;
 import com.mygdx.game.gameEngine.pcm.PlayerControlManager;
 import com.mygdx.game.gameEngine.screen.*;
@@ -73,7 +72,6 @@ public class GameScreen extends Screens implements PauseCallBack{
 		ioManager.setPauseCallback(this);
 		CollisionManager.getInstance();
 		collision = Collision.getInstance();
-		LevelManager.getInstance();
 		screenList = ScreenManager.getInstance();
 		entityCreation = EntityFactory.getInstance();
 		soundsManager = SoundsManager.getInstance();

@@ -11,8 +11,8 @@ import com.mygdx.game.gameLogic.lifecycle.EnemyAssetsFactory;
 import java.util.Random;
 
 public class Enemy extends Colliable {
-    Vector2 vel;
-    String color;
+    private Vector2 vel;
+    private String color;
     public Enemy() {
         super(EnemyAssetsFactory.getInstance().getRandom(), Gdx.graphics.getWidth()/2, 500, 0);
         Random random = new Random();

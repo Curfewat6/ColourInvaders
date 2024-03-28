@@ -32,15 +32,12 @@ import com.mygdx.game.gameEngine.entity.EntityManager;
 import com.mygdx.game.gameLogic.entity.Player;
 import com.mygdx.game.gameLogic.io.InputOutManagement;
 import com.mygdx.game.gameLogic.io.InputOutputManager;
-import com.mygdx.game.gameLogic.level.LevelManagement;
-import com.mygdx.game.gameLogic.level.LevelManager;
-import com.mygdx.game.gameLogic.level.LevelSpecifier;
 import com.mygdx.game.gameEngine.screen.*;
 
 
 public class GameInfoScreen extends Screens{
 	
-	private LevelManagement levelList;
+	
     private EntityManagement entityList;
     private ScreenManagement screenList;
 
@@ -53,7 +50,6 @@ public class GameInfoScreen extends Screens{
     private Texture Image;
     private BitmapFont Font;
 	private String background;
-	private LevelSpecifier level;
 
 	private TextButton easyBtn;
 	private TextButton normalBtn;
@@ -69,7 +65,6 @@ public class GameInfoScreen extends Screens{
         batch = new SpriteBatch();
         font = new BitmapFont();
 		background = bgPath;
-		levelList = LevelManager.getInstance();
 
 
     }

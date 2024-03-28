@@ -15,9 +15,6 @@ import com.mygdx.game.gameEngine.screen.ScreenManagement;
 import com.mygdx.game.gameEngine.io.InputOutManagement;
 import com.mygdx.game.gameEngine.io.InputOutputManager;
 import com.mygdx.game.gameEngine.screen.ScreenManager;
-import com.mygdx.game.gameLogic.level.LevelManagement;
-import com.mygdx.game.gameLogic.level.LevelManager;
-import com.mygdx.game.gameLogic.level.LevelSpecifier;
 import com.mygdx.game.gameLogic.screen.ScreenCreate;
 
 
@@ -31,9 +28,6 @@ public class GameMaster extends Game
 	private CollisionManagement collision;
 	private PlayerControlManagement playerControl;
 	private InputOutManagement ioManager;
-	private LevelManagement levelList;
-	
-	private LevelSpecifier level;
 	
 
 
@@ -47,7 +41,6 @@ public class GameMaster extends Game
 	    collision = CollisionManager.getInstance();
 	    playerControl = PlayerControlManager.getInstance();
 		ioManager = InputOutputManager.getInstance();
-		levelList = LevelManager.getInstance();
 		
 		//levelList.addLevel(new LevelSpecifier(0, "background.jpg", entityList, 0));
 		//levelList.addLevel(new LevelSpecifier(1, "Gamebackground.jpg", entityList, 10));

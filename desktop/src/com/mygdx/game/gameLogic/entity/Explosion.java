@@ -13,7 +13,7 @@ public class Explosion extends NonColliable{
 
     private Texture tex;
     private String texName;
-    SpriteSheet sheet;
+    private SpriteSheet sheet;
 
 
     public Explosion(float x,float y,String color) {

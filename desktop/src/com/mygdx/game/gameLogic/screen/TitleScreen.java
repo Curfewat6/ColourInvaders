@@ -22,9 +22,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.game.gameEngine.entity.EntityManagement;
 import com.mygdx.game.gameEngine.entity.EntityManager;
 import com.mygdx.game.gameEngine.screen.*;
-import com.mygdx.game.gameLogic.level.LevelManagement;
-import com.mygdx.game.gameLogic.level.LevelManager;
-import com.mygdx.game.gameLogic.level.LevelSpecifier;
+
 
 
 
@@ -32,13 +30,11 @@ public class TitleScreen extends Screens{
 	
 	private EntityManagement em;
 	private ScreenManagement screenList;
-	private LevelManagement levelList;
 
 	
 	private Skin skin;
 	private Label title;
 	private FitViewport fitViewport;
-	private LevelSpecifier level;
 	private String background;
 	
 	private TextButton playButton;
@@ -56,7 +52,6 @@ public class TitleScreen extends Screens{
 		setName(name);
 		em = EntityManager.getInstance();
 		screenList = ScreenManager.getInstance();
-		levelList = LevelManager.getInstance();
 		background = bgPath;
 		soundsManager.stop("music");
 	}

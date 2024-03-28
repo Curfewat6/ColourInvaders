@@ -14,7 +14,7 @@ public class Enemy extends Colliable {
     Vector2 vel;
     String color;
     public Enemy() {
-        super(EnemyAssetsFactory.getInstance().getRandom(), Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight(), 0);
+        super(EnemyAssetsFactory.getInstance().getRandom(), Gdx.graphics.getWidth()/2, 500, 0);
         Random random = new Random();
         posX = 50 + random.nextInt(300);
 

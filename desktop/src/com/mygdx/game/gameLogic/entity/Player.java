@@ -17,12 +17,14 @@ public class Player extends NonColliable{
     private Texture tex;
     private String texName;
     private PlayerControlManager playerControl;
-    SpriteSheet sheet;
+    private SpriteSheet sheet;
 
-    ShapeRenderer shapeRenderer;
-    int lives;
-    float healthBarWidth;
-    float healthBarLiveWidth;
+    private ShapeRenderer shapeRenderer;
+    private int lives;
+    private float healthBarWidth;
+    private float healthBarLiveWidth;
+    private float x,y,height;
+
 
     public Player() {
         super("kitty.png", Gdx.graphics.getWidth()/2 + 150, 5, 0);
@@ -30,8 +32,11 @@ public class Player extends NonColliable{
         sheet.setPlay(0, 3, 0.1f, true);
         lives = 3;
         shapeRenderer = new ShapeRenderer();
+        x = Gdx.graphics.getWidth()/5 * 4;
+        y = 12;
+        height = Gdx.graphics.getHeight()/45;
 
-        healthBarWidth = 30 * 3;
+        healthBarWidth = Gdx.graphics.getWidth()/20 * 3;
         healthBarLiveWidth = healthBarWidth / lives;
     }
  
@@ -47,26 +52,30 @@ public class Player extends NonColliable{
     
 
     void drawHealthBar(){
-        float x = posX + 70;
-        float y = posY;
 
         for(int i = 0 ; i < lives;i++){
             shapeRenderer.setColor(Color.RED);
             shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-            shapeRenderer.rect(x + healthBarLiveWidth * i,y ,healthBarLiveWidth,10);
+            shapeRenderer.rect(x + healthBarLiveWidth * i,y ,healthBarLiveWidth,height);
             shapeRenderer.end();
         }
 
         shapeRenderer.setColor(Color.WHITE);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-        shapeRenderer.rect(x,y,healthBarWidth,10);
+        shapeRenderer.rect(x,y,healthBarWidth,height);
         shapeRenderer.end();
 
+    }
+    public void setX(float x){
+        this.x = x;
+    }
+    public void setY(float y){
+        this.y = y;
     }
 
     @Override
     public void update() {
-    	//System.out.println("In " + texName + " at " + "(" + posX + ","+ posY +") with the speed of " + speed);
+    
     }
 
 

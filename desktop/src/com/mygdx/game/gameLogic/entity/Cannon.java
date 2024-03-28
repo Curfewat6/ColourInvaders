@@ -27,10 +27,22 @@ public class Cannon extends NonColliable {
         wheelTexture = new Texture("wheel.png");
     }
 
+//    @Override
+//    public void update() {
+//        angle += rotateSpeed;
+//    }
+    
     @Override
     public void update() {
+        // Ensure that the angle stays within the range of -90 to 90 degrees (horizontal)
         angle += rotateSpeed;
+        if (angle < -90) {
+            angle = -90;
+        } else if (angle > 90) {
+            angle = 90;
+        }
     }
+
 
     public float getRotateSpeed() {
         return rotateSpeed;

@@ -76,6 +76,8 @@ public class GameScreen extends Screens implements PauseCallBack{
 		LevelManager.getInstance();
 		screenList = ScreenManager.getInstance();
 		entityCreation = EntityFactory.getInstance();
+		soundsManager = SoundsManager.getInstance();
+
 		background = bgPath;
 		
 		batch = new SpriteBatch();
@@ -132,7 +134,6 @@ public class GameScreen extends Screens implements PauseCallBack{
 		getStage().addActor(wordLabel);
 		getStage().addActor(scoreLabel);
 
-		soundsManager = new SoundsManager();
 		soundsManager.music();
 
 		aiMovement = new AImovement();

@@ -106,7 +106,7 @@ public class TitleScreen extends Screens{
 			@Override
 			public void clicked(InputEvent event, float x, float y)
 			{
-				//screenList.getScreen("SETTING");
+				screenList.getScreen("SETTING");
 			}	
 		});
 	    

@@ -48,7 +48,6 @@ public class GameScreen extends Screens implements PauseCallBack{
 	private AImovement aiMovement;
 	private PlayerMovement playerMovement;
 
-
 	private Player player;
 	private Cannon cannon;
 
@@ -66,6 +65,7 @@ public class GameScreen extends Screens implements PauseCallBack{
 	{
 		super(game, Width, Height);
 		setName(name);
+		
 		entityList = EntityManager.getInstance();
 		PlayerControlManager.getInstance();
 		ioManager = InputOutputManager.getInstance();
@@ -85,12 +85,17 @@ public class GameScreen extends Screens implements PauseCallBack{
 	
 	public void create()
 	{
+		// Creating new viewport for the stage
 		fitViewport = new FitViewport(Screens.Width, Screens.Height);
-		score = 0;
 		Stage newStage = new Stage(fitViewport);
 		setStage(newStage);
+		
+		// Setting a new input for the current stage
 		Gdx.input.setInputProcessor(getStage());
+		
+		score = 0;
 
+		// Creation of pause menu
 		pauseMenu = new Dialog("", skin) {
 		    public void result(Object obj) {
 		        if ("QUIT".equals(obj)) {
@@ -109,20 +114,16 @@ public class GameScreen extends Screens implements PauseCallBack{
 		    }
 		});
 		pauseMenu.hide();
-		getStage().addActor(pauseMenu);
 
+		// Setting background of the screen
         setBackgroundImage(new Image(getTexture()));
         getBackgroundImage().setSize(Screens.Width, Screens.Height);
-        
-        getStage().addActor(getBackgroundImage());
 
+        // Creation of player entities
 		cannon = (Cannon) entityCreation.createEntity(EntityEnum.CANNON,entityList);
 		player = (Player) entityCreation.createEntity(EntityEnum.PLAYER,entityList);
 
-		skin = new Skin(Gdx.files.internal("uiskin.json"));
-
-		word = "BLUE";
-		word.toUpperCase();
+		// Creation of Label for scores
 		wordLabel = new Label(word,skin);
 		wordLabel.setFontScale(2.2f);
 		scoreLabel = new Label("Score: 0",skin);
@@ -130,15 +131,19 @@ public class GameScreen extends Screens implements PauseCallBack{
 		scoreLabel.setPosition(player.getPosX(),player.getPosY() + 20);
 		scoreLabel.setColor(Color.CYAN);
 
+		// Adding all the actors to the stage
+		getStage().addActor(pauseMenu);
+        getStage().addActor(getBackgroundImage());
 		getStage().addActor(wordLabel);
 		getStage().addActor(scoreLabel);
 
+		// Play song from the soundsManager
 		soundsManager.music();
 
 		aiMovement = new AImovement();
 		playerMovement = new PlayerMovement();
 
-
+		// Spawn enemy based on different different difficulties
 		spawnTime = 2;
 		spawnTimeInterval = 0;
 		switch (Setting.getInstance().difficult){
@@ -175,41 +180,26 @@ public class GameScreen extends Screens implements PauseCallBack{
 	    setTexture(new Texture(background));
 	    create();
 	}
-	
-	// private void ScreenBounds() {
-	//     int screenWidth = Gdx.graphics.getWidth();
-	//     int screenHeight = Gdx.graphics.getHeight();
-
-	//     for (int i = 0; i < entityList.getEntities().size(); i++){
-	//    		Entity a = entityList.getEntities().get(i);
-	// 		   	if (!(a instanceof Player)) {
-	// 	             continue;
-	// 	        }	
-	// 	        Player player = (Player) a;
-	// 	        float newX = Math.max(0, Math.min(player.getPosX(), screenWidth - 64));
-	// 	 	    float newY = Math.max(0, Math.min(player.getPosY(), screenHeight - 64));
-
-	// 	 	    player.setPosX(newX);
-	// 	 	    player.setPosY(newY);
-	//     }
-	// }
 
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		fitViewport.apply();
 		keyPressed = ioManager.handleInput();
+		
+		// Checks for user input to pause the game
 		if(keyPressed.startsWith("pause")){
 			togglePause();
 		}
+		
+		// Running the game when its not paused
 	    if (!isPaused) 
 	    {
 			word = playerMovement.PlayerMove();
 	        entityList.update();
 			aiMovement.aiMovement();
 			
-			//ScreenBounds();
-
+			// Ending game if user health reaches 0
 			if(player.getLives() <= 0){
 			    GameScreen.finalScore = score; // Assign the score to the static variable
 				soundsManager.stop("music");
@@ -228,12 +218,15 @@ public class GameScreen extends Screens implements PauseCallBack{
 		getStage().draw();
 		entityList.draw();
 		wordLabel.setText(word);
+		
+		// Re-adjust actors positions when screen is being resized
 		wordLabel.setPosition(player.getPosX() + 150 - wordLabel.getWidth(),100);
 		changeTextColor(word);
         scoreLabel.setPosition(player.getPosX() + 200, player.getPosY() + 20);
 		scoreLabel.setText("Score: " + String.valueOf(score));
 	}
 
+	// Change text color based on user input
 	void changeTextColor(String color){
 		wordLabel.setColor(Color.WHITE);
 		if(color.equals("RED")){

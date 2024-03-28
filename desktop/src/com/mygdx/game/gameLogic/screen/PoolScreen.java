@@ -38,10 +38,16 @@ public class PoolScreen extends Screens{
 
 	@Override
 	public void create() {
+		// Creating new viewport for the stage
 		fitViewport = new FitViewport(Screens.Width, Screens.Height);
 		Stage newStage = new Stage(fitViewport);
 		setStage(newStage);
 		
+		// Setting a new input for the current stage
+	    Gdx.input.setInputProcessor(getStage());
+		
+		// Creation of the variables that would be displayed on the screen
+	    // Home button
 	    homeButton = new TextButton("Home", skin);
 	    homeButton.setSize(60,40);
 	    homeButton.setPosition(Screens.Width - homeButton.getWidth(), Screens.Height - homeButton.getHeight());
@@ -55,12 +61,12 @@ public class PoolScreen extends Screens{
 
 	    	}
 	    });
-		
-	    Gdx.input.setInputProcessor(getStage());
-	    
+
+		// Setting background of the screen
 	    setBackgroundImage(new Image(getTexture()));
 	    getBackgroundImage().setSize(Screens.Width, Screens.Height);
 
+        // Adding all the actors to the stage
         getStage().addActor(getBackgroundImage());
 	    getStage().addActor(homeButton);
 
@@ -85,9 +91,6 @@ public class PoolScreen extends Screens{
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		if (Gdx.input.isTouched()) {
-		    System.out.println("Screen touched at: " + Gdx.input.getX() + ", " + Gdx.input.getY());
-		}
 		fitViewport.apply();
 		getStage().act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
 		getStage().draw();

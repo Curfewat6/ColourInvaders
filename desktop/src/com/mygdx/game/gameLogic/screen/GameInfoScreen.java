@@ -70,15 +70,18 @@ public class GameInfoScreen extends Screens{
     }
 	
     public void create(){
+		// Creating new viewport for the stage
         fitViewport = new FitViewport(Screens.Width, Screens.Height);
         Stage newStage = new Stage(fitViewport);
 		setStage(newStage);
-		Gdx.input.setInputProcessor(getStage());
-
 		
-        setBackgroundImage(new Image(getTexture()));
-        getBackgroundImage().setSize(Screens.Width, Screens.Height);
+		// Setting a new input for the current stage
+		Gdx.input.setInputProcessor(getStage());
+        
+		// Creation of the variables that would be displayed on the screen
         Font = new BitmapFont();
+        
+        // Easy button
         easyBtn = new TextButton("Easy", skin);
 		easyBtn.setSize(200,50);
 		easyBtn.setPosition(Screens.Width/2 - easyBtn.getWidth()/2, 400);
@@ -91,6 +94,8 @@ public class GameInfoScreen extends Screens{
 				screenList.getScreen("GAME1");
 	        }
 	    });
+		
+        // Normal button
 		normalBtn = new TextButton("Normal", skin);
 		normalBtn.setSize(200,50);
 		normalBtn.setPosition(Screens.Width/2 - easyBtn.getWidth()/2, 300);
@@ -103,6 +108,8 @@ public class GameInfoScreen extends Screens{
 				screenList.getScreen("GAME1");
 			}
 		});
+		
+        // Hard Button
 		hardBtn = new TextButton("Hard", skin);
 		hardBtn.setSize(200,50);
 		hardBtn.setPosition(Screens.Width/2 - easyBtn.getWidth()/2, 200);
@@ -116,10 +123,11 @@ public class GameInfoScreen extends Screens{
 			}
 		});
 
-
+		// Setting background of the screen
 		setBackgroundImage(new Image(getTexture()));
         getBackgroundImage().setSize(Screens.Width, Screens.Height);
         
+        // Adding all the actors to the stage
         getStage().addActor(getBackgroundImage());
 		getStage().addActor(easyBtn);
 		getStage().addActor(normalBtn);

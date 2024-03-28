@@ -58,15 +58,19 @@ public class TitleScreen extends Screens{
 	
 	public void create()
 	{
+		// Creating new viewport for the stage
 		fitViewport = new FitViewport(Screens.Width, Screens.Height);
 		Stage newStage = new Stage(fitViewport);
 		setStage(newStage);
 		
+		// Setting a new input for the current stage
 	    Gdx.input.setInputProcessor(getStage());
 		
+		// Creation of the variables that would be displayed on the screen
 		title = new Label("Hello!", skin);
 		title.setPosition(Screens.Width / 2 - title.getWidth() / 2, Screens.Height / 2 + 100);
 		
+		// Play button
 	    playButton = new TextButton("Start", skin);
 		playButton.setSize(200,50);
 		playButton.setPosition(Screens.Width / 2 - playButton.getWidth() / 2, 300);
@@ -81,6 +85,7 @@ public class TitleScreen extends Screens{
 	        }
 	    });
 	    
+	    // How to play button
 	    guideButton = new TextButton("How to play?", skin);
 	    guideButton.setSize(200,50);
 		guideButton.setPosition(Screens.Width / 2 - playButton.getWidth() / 2, 200);
@@ -93,6 +98,7 @@ public class TitleScreen extends Screens{
 			}
 		});
 
+		// Setting button
 		settingButton = new TextButton("Settings", skin);
 		settingButton.setSize(200,50);
 		settingButton.setPosition(Screens.Width / 2 - playButton.getWidth() / 2, 100);
@@ -105,9 +111,11 @@ public class TitleScreen extends Screens{
 			}	
 		});
 	    
+		// Setting background of the screen
 	    setBackgroundImage(new Image(getTexture()));
 	    getBackgroundImage().setSize(Screens.Width, Screens.Height);
 
+        // Adding all the actors to the stage
         getStage().addActor(getBackgroundImage());
 	    getStage().addActor(title);
 	    getStage().addActor(guideButton);
@@ -121,8 +129,6 @@ public class TitleScreen extends Screens{
 	@Override
 	public void show() {
 	    skin = new Skin(Gdx.files.internal("uiskin.json")); 
-	    // get the background image path from level specifier
-
 	    setTexture(new Texture(background));
 	    create();
 	}
@@ -131,9 +137,6 @@ public class TitleScreen extends Screens{
 	public void render(float delta) {
 		em.dispose();
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		if (Gdx.input.isTouched()) {
-		    System.out.println("Screen touched at: " + Gdx.input.getX() + ", " + Gdx.input.getY());
-		}
 		fitViewport.apply();
 		getStage().act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
 		getStage().draw();
@@ -142,8 +145,6 @@ public class TitleScreen extends Screens{
 
 	@Override
 	public void resize(int width, int height) {
-	    System.out.println("Resizing to: " + width + "x" + height);
-
 		getStage().getViewport().update(width, height, true);
 
 	}

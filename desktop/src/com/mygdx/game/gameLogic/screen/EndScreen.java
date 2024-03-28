@@ -25,7 +25,6 @@ import com.mygdx.game.gameEngine.screen.*;
 
 public class EndScreen extends Screens{
 	
-	
 	private EntityManagement em;
 	private ScreenManagement screenList;
 
@@ -50,36 +49,39 @@ public class EndScreen extends Screens{
 	
 	public void create()
 	{
+		// Creating new viewport for the stage
 		fitViewport = new FitViewport(Screens.Width, Screens.Height);
 		Stage newStage = new Stage(fitViewport);
 		setStage(newStage);
 		
+		// Setting a new input for the current stage
 		Gdx.input.setInputProcessor(getStage());
 
+		// Creation of the variables that would be displayed on the screen
+		// Title
 		title = new Label("CONGRATULATIONS!!", skin);
 		title.setPosition(Screens.Width / 2 - title.getWidth() / 2, Screens.Height / 2 + 100);
 		
+		// Displaying user final score
 	    score = new Label("YOUR SCORE: " + GameScreen.finalScore, skin);
 	    score.setPosition(Screens.Width / 2 - score.getWidth() / 2, Screens.Height / 2 + 80);
 		mainMenuButton = new TextButton("MainMenu", skin);
 		mainMenuButton.setPosition(Screens.Width / 2 - mainMenuButton.getWidth() / 2, Screens.Height / 2);
+		mainMenuButton.addListener(new ClickListener() 
+	    {
+	        @Override
+	        public void clicked(InputEvent event, float x, float y) 
+	        {
+	    	    screenList.getScreen("TITLE");
 
-		 mainMenuButton.addListener(new ClickListener() 
-		    {
-		        @Override
-		        public void clicked(InputEvent event, float x, float y) 
-		        {
-
-			        //getGame().setScreen(new TitleScreen(getGame()));
-		    	    screenList.getScreen("TITLE");
-
-		        }
-		    });
-		 
+	        }
+	    });
+		
+		// Setting background of the screen
         setBackgroundImage(new Image(getTexture()));
         getBackgroundImage().setSize(Screens.Width, Screens.Height);
 
-		 
+        // Adding all the actors to the stage
 	    getStage().addActor(getBackgroundImage());
 	    getStage().addActor(title);
 	    getStage().addActor(score);

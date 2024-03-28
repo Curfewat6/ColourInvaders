@@ -40,7 +40,6 @@ public class ScreenManager implements ScreenManagement
 		}
 		screenList.clear();
 	}
-	
 
     
     public void getScreen(String screenName) 
@@ -48,17 +47,12 @@ public class ScreenManager implements ScreenManagement
         for (Screens screen : screenList) 
         {
             if (screen.getName().equals(screenName)) 
-            { // Assuming there's a getName() method in Screens
+            {
+            	// change the screen to the screen that matches the name in the parameter
             	screen.getGame().setScreen(screen);
             	
             }
         }
-    }
-    
-    public void changeScreen(Screens screen)
-    {
-    	//screenList.get().getGame().setScreen(screen);  
-
     }
 
 	 

@@ -34,7 +34,7 @@ public class SettingScreen extends Screens{
     private Label volumeLabel;
 	private Skin skin;
 	
-	// Add a field to store the volume
+	// Field to store the volume
     private float savedVolume = 0.5f;
 
 	public SettingScreen(Game game, String name, String bgPath) {
@@ -49,15 +49,15 @@ public class SettingScreen extends Screens{
 
 	@Override
 	public void create() {
+		// Creating new viewport for the stage
 		fitViewport = new FitViewport(Screens.Width, Screens.Height);
 		Stage newStage = new Stage(fitViewport);
 		setStage(newStage);
 		
+		// Setting a new input for the current stage
 	    Gdx.input.setInputProcessor(getStage());
 	    
-	    setBackgroundImage(new Image(getTexture()));
-	    getBackgroundImage().setSize(Screens.Width, Screens.Height);
-		
+		// Creation of the variables that would be displayed on the screen
 	    // Volume Label
 	    volumeLabel = new Label("Sound Volume", skin);
 	    volumeLabel.setPosition(Screens.Width / 2 - volumeLabel.getWidth() / 2, Screens.Height / 2 + 50);
@@ -65,7 +65,6 @@ public class SettingScreen extends Screens{
         // Volume Slider
         volumeSlider = new Slider(0f, 1f, 0.1f, false, skin);
         volumeSlider.setPosition(Screens.Width / 2 - volumeSlider.getWidth() / 2, Screens.Height / 2);
-
         volumeSlider.setValue(savedVolume); // Default or saved value
         volumeSlider.addListener(new ChangeListener() {
             @Override
@@ -87,12 +86,16 @@ public class SettingScreen extends Screens{
             }
         });
         
-	    getStage().addActor(getBackgroundImage());
+		// Setting background of the screen
+	    setBackgroundImage(new Image(getTexture()));
+	    getBackgroundImage().setSize(Screens.Width, Screens.Height);
+        
+        // Adding all the actors to the stage
+	    getStage().addActor(getBackgroundImage());	    
 	    getStage().addActor(volumeLabel);
         getStage().addActor(homeButton);
         getStage().addActor(volumeSlider);
 
-		
 	}
 
 	@Override
@@ -106,17 +109,12 @@ public class SettingScreen extends Screens{
 	    skin = new Skin(Gdx.files.internal("uiskin.json")); 
 	    setTexture(new Texture(background));
 	    create();
-        volumeSlider.setValue(savedVolume); // Ensure the volume slider is set to the saved value
-
-				
+        volumeSlider.setValue(savedVolume); // Ensure the volume slider is set to the saved value	
 	}
 
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		if (Gdx.input.isTouched()) {
-		    System.out.println("Screen touched at: " + Gdx.input.getX() + ", " + Gdx.input.getY());
-		}
 		fitViewport.apply();
 		getStage().act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
 		getStage().draw();

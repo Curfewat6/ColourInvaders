@@ -7,7 +7,6 @@ import com.mygdx.game.gameLogic.ai.AImovement;
 import com.mygdx.game.gameLogic.collision.Collision;
 import com.mygdx.game.gameLogic.entity.*;
 import org.lwjgl.opengl.GL20;
-
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -19,7 +18,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.mygdx.game.gameEngine.collision.CollisionManager;
-import com.mygdx.game.gameEngine.entity.Entity;
 import com.mygdx.game.gameEngine.entity.EntityManagement;
 import com.mygdx.game.gameEngine.entity.EntityManager;
 import com.mygdx.game.gameLogic.io.InputOutManagement;
@@ -27,7 +25,6 @@ import com.mygdx.game.gameLogic.io.InputOutputManager;
 import com.mygdx.game.gameLogic.pcm.PlayerMovement;
 import com.mygdx.game.gameEngine.pcm.PlayerControlManager;
 import com.mygdx.game.gameEngine.screen.*;
-
 
 public class GameScreen extends Screens implements PauseCallBack{
 	private Skin skin;
@@ -261,13 +258,11 @@ public class GameScreen extends Screens implements PauseCallBack{
 
 	@Override
 	public void hide() {
-
 		
 	}
 
 	@Override
 	public void dispose() {
-
 		
 	}
 
@@ -281,6 +276,5 @@ public class GameScreen extends Screens implements PauseCallBack{
 			resume();
 			soundsManager.music();
 		}
-	}
-	
+	}	
 }

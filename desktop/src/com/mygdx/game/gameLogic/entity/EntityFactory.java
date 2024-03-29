@@ -1,10 +1,6 @@
 package com.mygdx.game.gameLogic.entity;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Interpolation.Exp;
 import com.mygdx.game.gameEngine.entity.Entity;
 import com.mygdx.game.gameEngine.entity.EntityManagement;
 
@@ -33,6 +29,7 @@ public class EntityFactory {
                 return null;
         }
     }
+    
     public Entity createEntity(EntityEnum entity, EntityManagement entitylist) {
         switch (entity) {
             case CANNON:
@@ -51,17 +48,16 @@ public class EntityFactory {
                 return null;
         }
     }
+    
     public Entity createEntity(EntityEnum entity, EntityManagement entitylist, Entity otherE, Entity e) {
         switch (entity) {
             case EXPLOSION:
                 if(((Bullet) e).getColor().equals(((Enemy)otherE).getColor())){
                     explosion = new Explosion(otherE.getPosX() - 32,otherE.getPosY() - 32,((Bullet)e).getColor());
-                    //entitylist.addEntity(explosion);
                     return explosion;   
                 }
                 else{
                     explosion = new Explosion(e.getPosX() - 32,e.getPosY() - 32,((Bullet)e).getColor());
-                    //entitylist.addEntity(explosion);
                     return explosion;   
                 }
                 

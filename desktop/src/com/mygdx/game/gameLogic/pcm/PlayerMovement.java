@@ -5,7 +5,6 @@ import com.mygdx.game.gameEngine.entity.EntityManager;
 import com.mygdx.game.gameEngine.pcm.PlayerControlManager;
 import com.mygdx.game.gameLogic.entity.Bullet;
 import com.mygdx.game.gameLogic.entity.Cannon;
-import com.mygdx.game.gameLogic.entity.Player;
 import com.mygdx.game.gameLogic.io.InputOutputManager;
 
 public class PlayerMovement {

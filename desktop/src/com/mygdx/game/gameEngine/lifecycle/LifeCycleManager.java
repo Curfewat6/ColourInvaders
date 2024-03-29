@@ -8,7 +8,6 @@ public class LifeCycleManager implements LifeCycleManagement{
 
 	    // Start the simulation and initialize the first scene
 	    public void startSimulation(EntityManagement entityManager) {
-
 	    	
 	    }
 

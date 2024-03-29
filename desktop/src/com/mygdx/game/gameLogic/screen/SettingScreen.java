@@ -4,7 +4,6 @@ import org.lwjgl.opengl.GL20;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -15,7 +14,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.game.gameEngine.screen.ScreenManagement;
 import com.mygdx.game.gameEngine.screen.ScreenManager;
 import com.mygdx.game.gameEngine.screen.Screens;
@@ -123,7 +121,6 @@ public class SettingScreen extends Screens{
 
 	@Override
 	public void resize(int width, int height) {
-	    System.out.println("Resizing to: " + width + "x" + height);
 
 		getStage().getViewport().update(width, height, true);
 		
@@ -131,21 +128,16 @@ public class SettingScreen extends Screens{
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void hide() {
-		// TODO Auto-generated method stub
 		
 	}
-
-
 }

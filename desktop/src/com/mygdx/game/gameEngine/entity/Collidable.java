@@ -3,20 +3,18 @@ package com.mygdx.game.gameEngine.entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.mygdx.game.gameEngine.pcm.PlayerControlManager;
 
-public class Colliable extends Entity implements Collision{
+public class Collidable extends Entity implements CollidableEntity{
 	
 	protected Texture tex;
     private Rectangle rectBound;
-    private SpriteBatch batch;
     protected String texName;
 	private boolean isAI;
     private PlayerControlManager playerControl;
 
-	public Colliable(String texPath, float posX, float posY, float speed) {
+	public Collidable(String texPath, float posX, float posY, float speed) {
 		super(posX, posY, speed);
 		this.tex = new Texture(Gdx.files.internal(texPath));
         // this rectBound is like a hit box for the texture objects
@@ -27,13 +25,11 @@ public class Colliable extends Entity implements Collision{
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void render(Batch batch) {
-		// TODO Auto-generated method stub
 		batch.begin();
 		batch.draw(this.tex,posX,posY);
 		batch.end();
@@ -41,13 +37,11 @@ public class Colliable extends Entity implements Collision{
 
 	@Override
 	public void create() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
 		
 	}
 	
@@ -75,9 +69,8 @@ public class Colliable extends Entity implements Collision{
 
 	@Override
 	public boolean collideEntity(Entity tex) {
-		// TODO Auto-generated method stub
-		if (tex instanceof Colliable) {
-			Colliable t = (Colliable) tex;
+		if (tex instanceof Collidable) {
+			Collidable t = (Collidable) tex;
 			if(t.getName() != getName()) {
 				return rectBound.overlaps(t.getRectBound());
 			}

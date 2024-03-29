@@ -23,7 +23,6 @@ public abstract class Entity {
         this.posX = posX;
         this.posY = posY;
         this.speed = speed;
-
     }
     
     public float getPosX() {

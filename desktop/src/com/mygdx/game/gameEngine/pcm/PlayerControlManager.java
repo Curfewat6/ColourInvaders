@@ -1,12 +1,7 @@
 package com.mygdx.game.gameEngine.pcm;
-import com.badlogic.gdx.Gdx;
-import com.mygdx.game.gameEngine.entity.Colliable;
+
 import com.mygdx.game.gameEngine.entity.Entity;
-import com.mygdx.game.gameEngine.entity.EntityManagement;
-import com.mygdx.game.gameEngine.entity.EntityManager;
-import com.mygdx.game.gameEngine.entity.NonColliable;
-import com.mygdx.game.gameLogic.entity.Player;
-import com.mygdx.game.gameEngine.screen.ScreenManager;
+import com.mygdx.game.gameEngine.entity.NonCollidable;
 
 public class PlayerControlManager implements PlayerControlManagement {
 	
@@ -24,8 +19,8 @@ public class PlayerControlManager implements PlayerControlManagement {
     
 
     public boolean handlingPlayerInput(Entity a) {
-        if ((a instanceof NonColliable)) {
-			NonColliable A = (NonColliable) a;
+        if ((a instanceof NonCollidable)) {
+			NonCollidable A = (NonCollidable) a;
 			if(A.getAI() == false) {
 				return true;
 			}

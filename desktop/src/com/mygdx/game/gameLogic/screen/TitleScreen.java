@@ -1,15 +1,10 @@
 package com.mygdx.game.gameLogic.screen;
 
-import com.mygdx.game.gameEngine.utils.Setting;
 import com.mygdx.game.gameEngine.utils.SoundsManager;
 import org.lwjgl.opengl.GL20;
-
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -18,19 +13,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.game.gameEngine.entity.EntityManagement;
 import com.mygdx.game.gameEngine.entity.EntityManager;
 import com.mygdx.game.gameEngine.screen.*;
-
-
-
 
 public class TitleScreen extends Screens{
 	
 	private EntityManagement em;
 	private ScreenManagement screenList;
-
 	
 	private Skin skin;
 	private Label title;
@@ -41,10 +31,7 @@ public class TitleScreen extends Screens{
 	private TextButton guideButton;
 	private TextButton settingButton;
 
-
 	SoundsManager soundsManager = new SoundsManager();
-
-
 
 	public TitleScreen(Game game, String name, String bgPath) 
 	{
@@ -122,7 +109,6 @@ public class TitleScreen extends Screens{
 	    getStage().addActor(playButton);
 	    getStage().addActor(settingButton);
 
-
 	}
 
 
@@ -151,27 +137,21 @@ public class TitleScreen extends Screens{
 
 	@Override
 	public void pause() {
-
 		
 	}
 
 	@Override
 	public void resume() {
 
-		
 	}
 
 	@Override
 	public void hide() {
-
 		
 	}
 
 	@Override
 	public void dispose() {
-		
-		
-	}
-
-	
+				
+	}	
 }

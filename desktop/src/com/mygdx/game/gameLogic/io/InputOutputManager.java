@@ -2,10 +2,8 @@ package com.mygdx.game.gameLogic.io;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.mygdx.game.gameEngine.pcm.PlayerControlManagement;
 import com.mygdx.game.gameEngine.pcm.PlayerControlManager;
 import com.mygdx.game.gameEngine.screen.PauseCallBack;
-import com.mygdx.game.gameEngine.screen.ScreenManager;
 
 public class InputOutputManager implements InputOutManagement {
     private Keyboard keyboard;

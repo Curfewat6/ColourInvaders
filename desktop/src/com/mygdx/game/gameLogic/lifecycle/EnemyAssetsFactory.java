@@ -1,8 +1,5 @@
 package com.mygdx.game.gameLogic.lifecycle;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.mygdx.game.gameEngine.entity.EntityManager;
-
 import java.util.*;
 
 public class EnemyAssetsFactory {

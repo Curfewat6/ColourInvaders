@@ -1,19 +1,13 @@
 package com.mygdx.game.gameLogic.entity;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
-import com.mygdx.game.gameEngine.entity.Colliable;
 import com.mygdx.game.gameEngine.entity.EntityManagement;
-import com.mygdx.game.gameEngine.entity.EntityManager;
-import com.mygdx.game.gameEngine.entity.NonColliable;
-import com.mygdx.game.gameLogic.lifecycle.EnemyAssetsFactory;
+import com.mygdx.game.gameEngine.entity.NonCollidable;
 
-import java.util.Random;
-
-public class Cannon extends NonColliable {
+public class Cannon extends NonCollidable {
     private Texture texture;
     private Texture wheelTexture;
 
@@ -27,11 +21,6 @@ public class Cannon extends NonColliable {
         wheelTexture = new Texture("wheel.png");
     }
 
-//    @Override
-//    public void update() {
-//        angle += rotateSpeed;
-//    }
-    
     @Override
     public void update() {
         // Ensure that the angle stays within the range of -90 to 90 degrees (horizontal)
@@ -42,7 +31,6 @@ public class Cannon extends NonColliable {
             angle = 90;
         }
     }
-
 
     public float getRotateSpeed() {
         return rotateSpeed;

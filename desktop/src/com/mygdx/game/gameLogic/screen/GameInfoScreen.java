@@ -1,52 +1,29 @@
 package com.mygdx.game.gameLogic.screen;
 
-import java.util.List;
-
 import com.mygdx.game.gameEngine.utils.Setting;
 import org.lwjgl.opengl.GL20;
-
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import com.mygdx.game.gameEngine.ai.AIManagement;
-import com.mygdx.game.gameEngine.ai.AIManager;
-import com.mygdx.game.gameEngine.collision.CollisionManagement;
-import com.mygdx.game.gameEngine.collision.CollisionManager;
-import com.mygdx.game.gameEngine.entity.Entity;
 import com.mygdx.game.gameEngine.entity.EntityManagement;
 import com.mygdx.game.gameEngine.entity.EntityManager;
-import com.mygdx.game.gameLogic.entity.Player;
-import com.mygdx.game.gameLogic.io.InputOutManagement;
-import com.mygdx.game.gameLogic.io.InputOutputManager;
 import com.mygdx.game.gameEngine.screen.*;
-
 
 public class GameInfoScreen extends Screens{
 	
-	
-    private EntityManagement entityList;
     private ScreenManagement screenList;
-
     
     private Skin skin;
-    private SpriteBatch batch;
-    private BitmapFont font;
 	private FitViewport fitViewport;
-    private boolean isPaused = false;
     private Texture Image;
     private BitmapFont Font;
 	private String background;
@@ -55,17 +32,11 @@ public class GameInfoScreen extends Screens{
 	private TextButton normalBtn;
 	private TextButton hardBtn;
 
-
-
 	public GameInfoScreen(Game game, String name, String bgPath){
         super(game, Width, Height);
 		setName(name);
-        entityList = EntityManager.getInstance();
         screenList = ScreenManager.getInstance();
-        batch = new SpriteBatch();
-        font = new BitmapFont();
 		background = bgPath;
-
 
     }
 	
@@ -137,15 +108,11 @@ public class GameInfoScreen extends Screens{
 
 	@Override
 	public void pause() {
-	    isPaused = true;
 	}
 
 	@Override
 	public void resume() {
-	    isPaused = false;
-	}
-	
-	
+	}	
 
 	@Override
 	public void show() 
@@ -169,7 +136,6 @@ public class GameInfoScreen extends Screens{
 	public void resize(int width, int height) {
 		getStage().getViewport().update(width, height, true);
 	}
-
 
 	@Override
 	public void hide() {		

@@ -3,11 +3,6 @@ package com.mygdx.game.gameEngine.screen;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.badlogic.gdx.Game;
-import com.mygdx.game.gameEngine.ai.AIManager;
-import com.mygdx.game.gameEngine.entity.Entity;
-import com.mygdx.game.gameEngine.entity.EntityManager;
-
 public class ScreenManager implements ScreenManagement
 {
 	private List<Screens> screenList;
@@ -41,7 +36,6 @@ public class ScreenManager implements ScreenManagement
 		screenList.clear();
 	}
 
-    
     public void getScreen(String screenName) 
     {
         for (Screens screen : screenList) 

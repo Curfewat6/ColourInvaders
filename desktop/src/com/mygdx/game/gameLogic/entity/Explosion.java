@@ -4,17 +4,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.mygdx.game.gameEngine.entity.NonColliable;
-import com.mygdx.game.gameEngine.pcm.PlayerControlManager;
+import com.mygdx.game.gameEngine.entity.NonCollidable;
 import com.mygdx.game.gameEngine.utils.SpriteSheet;
 
-
-public class Explosion extends NonColliable{
+public class Explosion extends NonCollidable{
 
     private Texture tex;
-    private String texName;
     private SpriteSheet sheet;
-
 
     public Explosion(float x,float y,String color) {
         super("kitty.png", x,y, 0);
@@ -50,14 +46,12 @@ public class Explosion extends NonColliable{
     	batch.end();
     }
     
-    
     @Override
     public void update() {
     	if(sheet.getCurrent() >= 32){
             destroyFlag = true;
         }
     }
-
 
     public Texture getTexture() {
         return tex;

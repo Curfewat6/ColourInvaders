@@ -1,6 +1,6 @@
 package com.mygdx.game.gameEngine.entity;
 
-public interface Collision {
+public interface CollidableEntity {
 	
 	boolean collideEntity(Entity tex);
 

@@ -90,9 +90,6 @@ public class Keyboard {
             // }
         }
 
-        // if (directionKeyPressed) {
-        //     pcm.handlingPlayerInput();
-        // }
         return "no-moving";
     }
 }

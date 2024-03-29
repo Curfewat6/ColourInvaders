@@ -1,16 +1,15 @@
 package com.mygdx.game.gameLogic.entity;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.mygdx.game.gameEngine.entity.Colliable;
+import com.mygdx.game.gameEngine.entity.Collidable;
 import com.mygdx.game.gameEngine.utils.Setting;
 import com.mygdx.game.gameLogic.lifecycle.EnemyAssetsFactory;
 
 import java.util.Random;
 
-public class Enemy extends Colliable {
+public class Enemy extends Collidable {
     private Vector2 vel;
     private String color;
     public Enemy() {

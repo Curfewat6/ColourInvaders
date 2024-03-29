@@ -1,7 +1,6 @@
 package com.mygdx.game.gameLogic.screen;
 
 import org.lwjgl.opengl.GL20;
-
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -75,7 +74,6 @@ public class PoolScreen extends Screens{
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -99,7 +97,6 @@ public class PoolScreen extends Screens{
 
 	@Override
 	public void resize(int width, int height) {
-	    System.out.println("Resizing to: " + width + "x" + height);
 
 		getStage().getViewport().update(width, height, true);
 		
@@ -107,19 +104,16 @@ public class PoolScreen extends Screens{
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void hide() {
-		// TODO Auto-generated method stub
 		
 	}
 

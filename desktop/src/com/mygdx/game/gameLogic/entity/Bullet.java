@@ -6,7 +6,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.game.gameEngine.entity.*;
 
-public class Bullet extends Colliable{
+public class Bullet extends Collidable{
 	
     private Vector2 vel;
 	private String color;

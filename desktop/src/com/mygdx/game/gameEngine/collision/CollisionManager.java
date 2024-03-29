@@ -1,23 +1,16 @@
 package com.mygdx.game.gameEngine.collision;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
-import com.mygdx.game.gameEngine.ai.AIManagement;
-import com.mygdx.game.gameEngine.ai.AIManager;
-import com.mygdx.game.gameEngine.entity.Colliable;
-import com.mygdx.game.gameEngine.entity.Entity;
+import com.mygdx.game.gameEngine.entity.Collidable;
 import com.mygdx.game.gameEngine.entity.EntityManagement;
 import com.mygdx.game.gameEngine.entity.EntityManager;
 
 public class CollisionManager implements CollisionManagement{
 	
 	private EntityManagement em;
-	private AIManagement ai;
 	private static CollisionManager instance;
 	
 	public CollisionManager() {
 	    em = EntityManager.getInstance();
-	    ai = AIManager.getInstance();
 	}
 	
 	public static CollisionManager getInstance() {
@@ -29,15 +22,13 @@ public class CollisionManager implements CollisionManagement{
 	}
 	
     public boolean checkCollision() {
-        float ranX = MathUtils.random(64, Gdx.graphics.getWidth() - 64);
         
         for (int i = 0; i < em.getCollidables().size(); i++) {
-            Colliable a = em.getCollidables().get(i);
+            Collidable a = em.getCollidables().get(i);
             
             for (int j = 1; j < em.getCollidables().size(); j++) {
-                Colliable b = em.getCollidables().get(j);
+                Collidable b = em.getCollidables().get(j);
                 if (a != b && a.collideEntity(b)) {
-                    // ai.resetMovement(b);
                     return true; // Collision detected, return true
                 }
             }

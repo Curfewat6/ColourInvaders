@@ -1,12 +1,9 @@
 package com.mygdx.game.gameLogic.screen;
 
 import org.lwjgl.opengl.GL20;
-
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -15,26 +12,20 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.mygdx.game.gameEngine.entity.EntityManagement;
 import com.mygdx.game.gameEngine.entity.EntityManager;
-import com.mygdx.game.gameLogic.entity.Player;
 import com.mygdx.game.gameEngine.screen.*;
-
-
 
 public class EndScreen extends Screens{
 	
 	private EntityManagement em;
 	private ScreenManagement screenList;
 
-	private Label title;
 	private Label score;
 	private Skin skin;
 	private TextButton mainMenuButton;
 	private FitViewport fitViewport;
 	private String background;
-
 
 	public EndScreen(Game game, String name, String bgPath) 
 	{
@@ -112,41 +103,27 @@ public class EndScreen extends Screens{
 
 	@Override
 	public void pause() {
-
-		
+	
 	}
 
 	@Override
 	public void resume() {
-
 		
 	}
 
 	@Override
 	public void hide() {
-
-		
+	
 	}
 
 	@Override
 	public void dispose() {
-
 		
 	}
 	
 	public void resetEM() {
 		
 		em.dispose();
-		int x = 10;
-		//ensure that the object is randomly place 
-		for (int i = 0; i < x; i++) {
-			float ranX = MathUtils.random(64,Gdx.graphics.getWidth()- 64);
-			float ranY = MathUtils.random(Gdx.graphics.getHeight()/2,Gdx.graphics.getHeight());
-			//em.addEntity(new Target("droplet.png",ranX,ranY,2));
-		}
-		//Creates all the Object needed
-		//em.addEntity(new Player("bucket.png",280,20,300));
-		//em.addEntity(new Triangle(150,250,350,50,150,50,Color.RED,200));
-		//em.addEntity(new Circle(50,50,50,Color.GREEN,200));
+
 	}
 }

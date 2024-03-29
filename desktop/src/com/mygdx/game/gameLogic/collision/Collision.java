@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.mygdx.game.gameEngine.collision.CollisionManager;
-import com.mygdx.game.gameEngine.entity.Colliable;
+import com.mygdx.game.gameEngine.entity.Collidable;
 import com.mygdx.game.gameEngine.entity.Entity;
 import com.mygdx.game.gameEngine.entity.EntityManager;
 import com.mygdx.game.gameEngine.utils.SoundsManager;
@@ -53,8 +53,8 @@ public class Collision {
 						continue;
 					}
 					if( e instanceof Bullet && otherE instanceof Enemy ){
-						Rectangle a = ((Colliable)e).getRectBound();
-						Rectangle b = ((Colliable)otherE).getRectBound();
+						Rectangle a = ((Collidable)e).getRectBound();
+						Rectangle b = ((Collidable)otherE).getRectBound();
 
 						if(collisionManager.rectCollide(a,b)){
 							if(((Bullet) e).getColor().toUpperCase().equals(((Enemy)otherE).getColor().toUpperCase())){

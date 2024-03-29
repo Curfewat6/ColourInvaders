@@ -7,12 +7,10 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.mygdx.game.gameEngine.entity.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.game.gameEngine.pcm.PlayerControlManager;
 import com.mygdx.game.gameEngine.utils.SpriteSheet;
 
-
-public class Player extends NonColliable{
+public class Player extends NonCollidable{
 	
     private Texture tex;
     private String texName;
@@ -49,7 +47,6 @@ public class Player extends NonColliable{
     	batch.end();
         drawHealthBar();
     }
-    
 
     void drawHealthBar(){
 
@@ -66,9 +63,11 @@ public class Player extends NonColliable{
         shapeRenderer.end();
 
     }
+    
     public void setX(float x){
         this.x = x;
     }
+    
     public void setY(float y){
         this.y = y;
     }
@@ -77,7 +76,6 @@ public class Player extends NonColliable{
     public void update() {
     
     }
-
 
     public Texture getTexture() {
         return tex;

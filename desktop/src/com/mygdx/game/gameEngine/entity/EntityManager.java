@@ -7,7 +7,7 @@ import java.util.List;
 
 public class EntityManager implements EntityManagement{
 	private List<Entity> entities;
-	private List<Colliable> collidables;
+	private List<Collidable> collidables;
 	private static EntityManager instance;
     public SpriteBatch batch;
 	
@@ -27,8 +27,8 @@ public class EntityManager implements EntityManagement{
 	
     public void addEntity(Entity entity) {
         entities.add(entity);
-        if (entity instanceof Colliable) {
-            collidables.add((Colliable) entity);
+        if (entity instanceof Collidable) {
+            collidables.add((Collidable) entity);
         }
     }
 
@@ -61,7 +61,7 @@ public class EntityManager implements EntityManagement{
     	return entities;
     }
     
-    public List<Colliable> getCollidables() {
+    public List<Collidable> getCollidables() {
     	return collidables;
     }
     

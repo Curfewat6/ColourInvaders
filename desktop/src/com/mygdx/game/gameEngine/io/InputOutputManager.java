@@ -2,10 +2,9 @@ package com.mygdx.game.gameEngine.io;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.mygdx.game.gameEngine.pcm.PlayerControlManagement;
 import com.mygdx.game.gameEngine.pcm.PlayerControlManager;
 import com.mygdx.game.gameEngine.screen.PauseCallBack;
-import com.mygdx.game.gameEngine.screen.ScreenManager;
+import com.mygdx.game.gameLogic.io.Keyboard;
 
 public class InputOutputManager implements InputOutManagement {
     private Keyboard keyboard;
@@ -32,9 +31,10 @@ public class InputOutputManager implements InputOutManagement {
      @Override
      public String handleInput() {
          if (Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)) {
-            keys = keyboard.handleKeyInput(pcb);
-            System.out.println(keys);
-            return keys;
+            // keys = keyboard.handleKeyInput(pcb);
+            // System.out.println(keys);
+            // return keys;
+            return keyboard.handleKeyInput(pcb);
          }
          return "no-input";
          // If you want to add more input devices u can put them here <3

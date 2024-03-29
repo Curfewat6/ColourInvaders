@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.mygdx.game.gameEngine.pcm.PlayerControlManager;
 import com.mygdx.game.gameEngine.screen.PauseCallBack;
-import com.mygdx.game.gameLogic.io.Keyboard;
+import com.mygdx.game.gameEngine.io.Keyboard;
 
 public class InputOutputManager implements InputOutManagement {
     private Keyboard keyboard;

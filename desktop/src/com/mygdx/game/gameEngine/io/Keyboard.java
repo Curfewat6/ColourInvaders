@@ -1,4 +1,4 @@
-package com.mygdx.game.gameLogic.io;
+package com.mygdx.game.gameEngine.io;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.mygdx.game.gameEngine.pcm.PlayerControlManagement;
@@ -23,7 +23,6 @@ public class Keyboard {
         if (Gdx.input.isKeyJustPressed(Keys.ESCAPE)) {
            
             if (pcb != null) {
-                //pcb.togglePause();
                 System.out.println(pcb);
                 isPaused = !isPaused;
                 if(isPaused){
@@ -48,11 +47,8 @@ public class Keyboard {
                 return "BACKSPACE";
             }
 
-//            captureTypingInput();
-
             for (int i = 29; i < 55; i++) {
                 if (Gdx.input.isKeyJustPressed(i)) {
-                    // I add 36 because the raw key code is not translated </3
                     char typedChar = (char) (i + 36);
 
                     return String.valueOf(typedChar);
@@ -60,34 +56,6 @@ public class Keyboard {
             }
 
             return "TYPING:" + inputBuffer.toString();
-            // Imma take this out because we can only move left  & right and shoot
-
-            // if (Gdx.input.isKeyPressed(Keys.W)) {
-            //     return "up";
-            //     //pcm.setDirection("up");
-            //     //directionKeyPressed = true;
-            // }
-            // if (Gdx.input.isKeyPressed(Keys.S)) {
-            //     return "down";
-            //     //pcm.setDirection("down");
-            //     //directionKeyPressed = true;
-            // }
-            // if (Gdx.input.isKeyPressed(Keys.LEFT)) {
-            //     pcm.setDirection("arrow-left");
-            //     directionKeyPressed = true;
-            // }
-            // if (Gdx.input.isKeyPressed(Keys.RIGHT)) {
-            //     pcm.setDirection("arrow-right");
-            //     directionKeyPressed = true;
-            // }
-            // if (Gdx.input.isKeyPressed(Keys.UP)) {
-            //     pcm.setDirection("arrow-up");
-            //     directionKeyPressed = true;
-            // }
-            // if (Gdx.input.isKeyPressed(Keys.DOWN)) {
-            //     pcm.setDirection("arrow-down");
-            //     directionKeyPressed = true;
-            // }
         }
 
         return "no-moving";
